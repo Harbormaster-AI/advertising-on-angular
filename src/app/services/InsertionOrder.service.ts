@@ -38,7 +38,7 @@ export class InsertionOrderService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addInsertionOrder(ioNumber, agreedBudget, flight, Advertiser, Agency, Publisher, Campaigns, Status) : Observable<any> {
-		const uri = this.apiUrl + '/InsertionOrder/create';
+		const uri_ = this.apiUrl + '/InsertionOrder/create';
 		const obj = {
 			      		ioNumber: ioNumber,
       		agreedBudget: agreedBudget,
@@ -50,7 +50,7 @@ export class InsertionOrderService extends HelperBaseService {
 			Status: Status
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -59,7 +59,7 @@ export class InsertionOrderService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateInsertionOrder(ioNumber, agreedBudget, flight, Advertiser, Agency, Publisher, Campaigns, Status, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/InsertionOrder/update/' + id;
+			const uri_ = this.apiUrl + '/InsertionOrder/update/' + id;
 		const obj = {
 				      		ioNumber: ioNumber,
       		agreedBudget: agreedBudget,
@@ -70,7 +70,7 @@ export class InsertionOrderService extends HelperBaseService {
       		Campaigns: Campaigns != null && Campaigns.length > 0 ? Campaigns : null,
 			Status: Status
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -79,9 +79,9 @@ export class InsertionOrderService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteInsertionOrder(id)  : Observable<any> {
-		const uri = this.apiUrl + '/InsertionOrder/delete/' + id;
+		const uri_ = this.apiUrl + '/InsertionOrder/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -91,9 +91,9 @@ export class InsertionOrderService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getInsertionOrder(id) : Observable<InsertionOrder> {
-		const uri = this.apiUrl + '/InsertionOrder/load/' + id;
+		const uri_ = this.apiUrl + '/InsertionOrder/load/' + id;
 
-		return this.http.get<InsertionOrder>(uri);
+		return this.http.get<InsertionOrder>(uri_);
 	}
 	
 	//********************************************************************
@@ -103,10 +103,10 @@ export class InsertionOrderService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getInsertionOrders() : Observable<InsertionOrder[]> {
-		const uri = this.apiUrl + '/InsertionOrder/';
+		const uri_ = this.apiUrl + '/InsertionOrder/';
 
 		return this
-			.http.get<InsertionOrder[]>(uri);
+			.http.get<InsertionOrder[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -285,9 +285,9 @@ export class InsertionOrderService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/InsertionOrder/update/' + this.insertionOrder;
+		const uri_ = this.apiUrl + '/InsertionOrder/update/' + this.insertionOrder;
 
-	return  this.http.post(uri, this.insertionOrder );
+	return  this.http.post(uri_, this.insertionOrder );
 }
 
 	//********************************************************************

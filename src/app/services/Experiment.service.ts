@@ -36,7 +36,7 @@ export class ExperimentService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addExperiment(name, hypothesis, startDate, endDate, Campaign, Variants, Status) : Observable<any> {
-		const uri = this.apiUrl + '/Experiment/create';
+		const uri_ = this.apiUrl + '/Experiment/create';
 		const obj = {
 			      		name: name,
       		hypothesis: hypothesis,
@@ -47,7 +47,7 @@ export class ExperimentService extends HelperBaseService {
 			Status: Status
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -56,7 +56,7 @@ export class ExperimentService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateExperiment(name, hypothesis, startDate, endDate, Campaign, Variants, Status, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/Experiment/update/' + id;
+			const uri_ = this.apiUrl + '/Experiment/update/' + id;
 		const obj = {
 				      		name: name,
       		hypothesis: hypothesis,
@@ -66,7 +66,7 @@ export class ExperimentService extends HelperBaseService {
       		Variants: Variants != null && Variants.length > 0 ? Variants : null,
 			Status: Status
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -75,9 +75,9 @@ export class ExperimentService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteExperiment(id)  : Observable<any> {
-		const uri = this.apiUrl + '/Experiment/delete/' + id;
+		const uri_ = this.apiUrl + '/Experiment/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -87,9 +87,9 @@ export class ExperimentService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getExperiment(id) : Observable<Experiment> {
-		const uri = this.apiUrl + '/Experiment/load/' + id;
+		const uri_ = this.apiUrl + '/Experiment/load/' + id;
 
-		return this.http.get<Experiment>(uri);
+		return this.http.get<Experiment>(uri_);
 	}
 	
 	//********************************************************************
@@ -99,10 +99,10 @@ export class ExperimentService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getExperiments() : Observable<Experiment[]> {
-		const uri = this.apiUrl + '/Experiment/';
+		const uri_ = this.apiUrl + '/Experiment/';
 
 		return this
-			.http.get<Experiment[]>(uri);
+			.http.get<Experiment[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -207,9 +207,9 @@ export class ExperimentService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/Experiment/update/' + this.experiment;
+		const uri_ = this.apiUrl + '/Experiment/update/' + this.experiment;
 
-	return  this.http.post(uri, this.experiment );
+	return  this.http.post(uri_, this.experiment );
 }
 
 	//********************************************************************

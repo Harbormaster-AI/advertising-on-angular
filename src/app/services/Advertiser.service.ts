@@ -39,7 +39,7 @@ export class AdvertiserService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addAdvertiser(name, legalName, industry, website, Agency, AdAccounts, BillingProfiles, Campaigns, TrackingPixels) : Observable<any> {
-		const uri = this.apiUrl + '/Advertiser/create';
+		const uri_ = this.apiUrl + '/Advertiser/create';
 		const obj = {
 			      		name: name,
       		legalName: legalName,
@@ -52,7 +52,7 @@ export class AdvertiserService extends HelperBaseService {
 			TrackingPixels: TrackingPixels != null && TrackingPixels.length > 0 ? TrackingPixels : null
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -61,7 +61,7 @@ export class AdvertiserService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateAdvertiser(name, legalName, industry, website, Agency, AdAccounts, BillingProfiles, Campaigns, TrackingPixels, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/Advertiser/update/' + id;
+			const uri_ = this.apiUrl + '/Advertiser/update/' + id;
 		const obj = {
 				      		name: name,
       		legalName: legalName,
@@ -73,7 +73,7 @@ export class AdvertiserService extends HelperBaseService {
       		Campaigns: Campaigns != null && Campaigns.length > 0 ? Campaigns : null,
 			TrackingPixels: TrackingPixels != null && TrackingPixels.length > 0 ? TrackingPixels : null
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -82,9 +82,9 @@ export class AdvertiserService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteAdvertiser(id)  : Observable<any> {
-		const uri = this.apiUrl + '/Advertiser/delete/' + id;
+		const uri_ = this.apiUrl + '/Advertiser/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -94,9 +94,9 @@ export class AdvertiserService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getAdvertiser(id) : Observable<Advertiser> {
-		const uri = this.apiUrl + '/Advertiser/load/' + id;
+		const uri_ = this.apiUrl + '/Advertiser/load/' + id;
 
-		return this.http.get<Advertiser>(uri);
+		return this.http.get<Advertiser>(uri_);
 	}
 	
 	//********************************************************************
@@ -106,10 +106,10 @@ export class AdvertiserService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getAdvertisers() : Observable<Advertiser[]> {
-		const uri = this.apiUrl + '/Advertiser/';
+		const uri_ = this.apiUrl + '/Advertiser/';
 
 		return this
-			.http.get<Advertiser[]>(uri);
+			.http.get<Advertiser[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -388,9 +388,9 @@ export class AdvertiserService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/Advertiser/update/' + this.advertiser;
+		const uri_ = this.apiUrl + '/Advertiser/update/' + this.advertiser;
 
-	return  this.http.post(uri, this.advertiser );
+	return  this.http.post(uri_, this.advertiser );
 }
 
 	//********************************************************************

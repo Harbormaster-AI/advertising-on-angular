@@ -37,7 +37,7 @@ export class DealService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addDeal(floorPrice, Publisher, InventorySources, Placements, DealType) : Observable<any> {
-		const uri = this.apiUrl + '/Deal/create';
+		const uri_ = this.apiUrl + '/Deal/create';
 		const obj = {
 			      		floorPrice: floorPrice,
       		Publisher: Publisher != null && Publisher.length > 0 ? Publisher : null,
@@ -46,7 +46,7 @@ export class DealService extends HelperBaseService {
 			DealType: DealType
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -55,7 +55,7 @@ export class DealService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateDeal(floorPrice, Publisher, InventorySources, Placements, DealType, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/Deal/update/' + id;
+			const uri_ = this.apiUrl + '/Deal/update/' + id;
 		const obj = {
 				      		floorPrice: floorPrice,
       		Publisher: Publisher != null && Publisher.length > 0 ? Publisher : null,
@@ -63,7 +63,7 @@ export class DealService extends HelperBaseService {
       		Placements: Placements != null && Placements.length > 0 ? Placements : null,
 			DealType: DealType
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -72,9 +72,9 @@ export class DealService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteDeal(id)  : Observable<any> {
-		const uri = this.apiUrl + '/Deal/delete/' + id;
+		const uri_ = this.apiUrl + '/Deal/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -84,9 +84,9 @@ export class DealService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getDeal(id) : Observable<Deal> {
-		const uri = this.apiUrl + '/Deal/load/' + id;
+		const uri_ = this.apiUrl + '/Deal/load/' + id;
 
-		return this.http.get<Deal>(uri);
+		return this.http.get<Deal>(uri_);
 	}
 	
 	//********************************************************************
@@ -96,10 +96,10 @@ export class DealService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getDeals() : Observable<Deal[]> {
-		const uri = this.apiUrl + '/Deal/';
+		const uri_ = this.apiUrl + '/Deal/';
 
 		return this
-			.http.get<Deal[]>(uri);
+			.http.get<Deal[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -262,9 +262,9 @@ export class DealService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/Deal/update/' + this.deal;
+		const uri_ = this.apiUrl + '/Deal/update/' + this.deal;
 
-	return  this.http.post(uri, this.deal );
+	return  this.http.post(uri_, this.deal );
 }
 
 	//********************************************************************

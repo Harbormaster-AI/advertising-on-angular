@@ -36,7 +36,7 @@ export class RateCardService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addRateCard(name, effectiveDate, currency, Publisher, Rates) : Observable<any> {
-		const uri = this.apiUrl + '/RateCard/create';
+		const uri_ = this.apiUrl + '/RateCard/create';
 		const obj = {
 			      		name: name,
       		effectiveDate: effectiveDate,
@@ -45,7 +45,7 @@ export class RateCardService extends HelperBaseService {
 			Rates: Rates != null && Rates.length > 0 ? Rates : null
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -54,7 +54,7 @@ export class RateCardService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateRateCard(name, effectiveDate, currency, Publisher, Rates, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/RateCard/update/' + id;
+			const uri_ = this.apiUrl + '/RateCard/update/' + id;
 		const obj = {
 				      		name: name,
       		effectiveDate: effectiveDate,
@@ -62,7 +62,7 @@ export class RateCardService extends HelperBaseService {
       		Publisher: Publisher != null && Publisher.length > 0 ? Publisher : null,
 			Rates: Rates != null && Rates.length > 0 ? Rates : null
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -71,9 +71,9 @@ export class RateCardService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteRateCard(id)  : Observable<any> {
-		const uri = this.apiUrl + '/RateCard/delete/' + id;
+		const uri_ = this.apiUrl + '/RateCard/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -83,9 +83,9 @@ export class RateCardService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getRateCard(id) : Observable<RateCard> {
-		const uri = this.apiUrl + '/RateCard/load/' + id;
+		const uri_ = this.apiUrl + '/RateCard/load/' + id;
 
-		return this.http.get<RateCard>(uri);
+		return this.http.get<RateCard>(uri_);
 	}
 	
 	//********************************************************************
@@ -95,10 +95,10 @@ export class RateCardService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getRateCards() : Observable<RateCard[]> {
-		const uri = this.apiUrl + '/RateCard/';
+		const uri_ = this.apiUrl + '/RateCard/';
 
 		return this
-			.http.get<RateCard[]>(uri);
+			.http.get<RateCard[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -203,9 +203,9 @@ export class RateCardService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/RateCard/update/' + this.rateCard;
+		const uri_ = this.apiUrl + '/RateCard/update/' + this.rateCard;
 
-	return  this.http.post(uri, this.rateCard );
+	return  this.http.post(uri_, this.rateCard );
 }
 
 	//********************************************************************

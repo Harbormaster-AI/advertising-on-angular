@@ -34,13 +34,13 @@ export class ContentCategoryService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addContentCategory(code, name) : Observable<any> {
-		const uri = this.apiUrl + '/ContentCategory/create';
+		const uri_ = this.apiUrl + '/ContentCategory/create';
 		const obj = {
 			      		code: code,
 			name: name
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -49,12 +49,12 @@ export class ContentCategoryService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateContentCategory(code, name, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/ContentCategory/update/' + id;
+			const uri_ = this.apiUrl + '/ContentCategory/update/' + id;
 		const obj = {
 				      		code: code,
 			name: name
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -63,9 +63,9 @@ export class ContentCategoryService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteContentCategory(id)  : Observable<any> {
-		const uri = this.apiUrl + '/ContentCategory/delete/' + id;
+		const uri_ = this.apiUrl + '/ContentCategory/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -75,9 +75,9 @@ export class ContentCategoryService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getContentCategory(id) : Observable<ContentCategory> {
-		const uri = this.apiUrl + '/ContentCategory/load/' + id;
+		const uri_ = this.apiUrl + '/ContentCategory/load/' + id;
 
-		return this.http.get<ContentCategory>(uri);
+		return this.http.get<ContentCategory>(uri_);
 	}
 	
 	//********************************************************************
@@ -87,10 +87,10 @@ export class ContentCategoryService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getContentCategorys() : Observable<ContentCategory[]> {
-		const uri = this.apiUrl + '/ContentCategory/';
+		const uri_ = this.apiUrl + '/ContentCategory/';
 
 		return this
-			.http.get<ContentCategory[]>(uri);
+			.http.get<ContentCategory[]>(uri_);
 	}
 	
 		
@@ -100,9 +100,9 @@ export class ContentCategoryService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/ContentCategory/update/' + this.contentCategory;
+		const uri_ = this.apiUrl + '/ContentCategory/update/' + this.contentCategory;
 
-	return  this.http.post(uri, this.contentCategory );
+	return  this.http.post(uri_, this.contentCategory );
 }
 
 	//********************************************************************

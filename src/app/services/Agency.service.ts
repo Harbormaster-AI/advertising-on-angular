@@ -38,7 +38,7 @@ export class AgencyService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addAgency(name, legalName, headquartersCountry, website, Advertisers, Teams, Users, InsertionOrders) : Observable<any> {
-		const uri = this.apiUrl + '/Agency/create';
+		const uri_ = this.apiUrl + '/Agency/create';
 		const obj = {
 			      		name: name,
       		legalName: legalName,
@@ -50,7 +50,7 @@ export class AgencyService extends HelperBaseService {
 			InsertionOrders: InsertionOrders != null && InsertionOrders.length > 0 ? InsertionOrders : null
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -59,7 +59,7 @@ export class AgencyService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateAgency(name, legalName, headquartersCountry, website, Advertisers, Teams, Users, InsertionOrders, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/Agency/update/' + id;
+			const uri_ = this.apiUrl + '/Agency/update/' + id;
 		const obj = {
 				      		name: name,
       		legalName: legalName,
@@ -70,7 +70,7 @@ export class AgencyService extends HelperBaseService {
       		Users: Users != null && Users.length > 0 ? Users : null,
 			InsertionOrders: InsertionOrders != null && InsertionOrders.length > 0 ? InsertionOrders : null
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -79,9 +79,9 @@ export class AgencyService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteAgency(id)  : Observable<any> {
-		const uri = this.apiUrl + '/Agency/delete/' + id;
+		const uri_ = this.apiUrl + '/Agency/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -91,9 +91,9 @@ export class AgencyService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getAgency(id) : Observable<Agency> {
-		const uri = this.apiUrl + '/Agency/load/' + id;
+		const uri_ = this.apiUrl + '/Agency/load/' + id;
 
-		return this.http.get<Agency>(uri);
+		return this.http.get<Agency>(uri_);
 	}
 	
 	//********************************************************************
@@ -103,10 +103,10 @@ export class AgencyService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getAgencys() : Observable<Agency[]> {
-		const uri = this.apiUrl + '/Agency/';
+		const uri_ = this.apiUrl + '/Agency/';
 
 		return this
-			.http.get<Agency[]>(uri);
+			.http.get<Agency[]>(uri_);
 	}
 	
 		
@@ -348,9 +348,9 @@ export class AgencyService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/Agency/update/' + this.agency;
+		const uri_ = this.apiUrl + '/Agency/update/' + this.agency;
 
-	return  this.http.post(uri, this.agency );
+	return  this.http.post(uri_, this.agency );
 }
 
 	//********************************************************************

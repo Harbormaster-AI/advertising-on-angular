@@ -38,7 +38,7 @@ export class CreativeAssetService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addCreativeAsset(name, clickUrl, landingPage, width, height, durationSeconds, Files, Approvals, Variations, LineItems, CreativeType, AdFormat) : Observable<any> {
-		const uri = this.apiUrl + '/CreativeAsset/create';
+		const uri_ = this.apiUrl + '/CreativeAsset/create';
 		const obj = {
 			      		name: name,
       		clickUrl: clickUrl,
@@ -54,7 +54,7 @@ export class CreativeAssetService extends HelperBaseService {
 			AdFormat: AdFormat
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -63,7 +63,7 @@ export class CreativeAssetService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateCreativeAsset(name, clickUrl, landingPage, width, height, durationSeconds, Files, Approvals, Variations, LineItems, CreativeType, AdFormat, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/CreativeAsset/update/' + id;
+			const uri_ = this.apiUrl + '/CreativeAsset/update/' + id;
 		const obj = {
 				      		name: name,
       		clickUrl: clickUrl,
@@ -78,7 +78,7 @@ export class CreativeAssetService extends HelperBaseService {
       		CreativeType: CreativeType,
 			AdFormat: AdFormat
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -87,9 +87,9 @@ export class CreativeAssetService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteCreativeAsset(id)  : Observable<any> {
-		const uri = this.apiUrl + '/CreativeAsset/delete/' + id;
+		const uri_ = this.apiUrl + '/CreativeAsset/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -99,9 +99,9 @@ export class CreativeAssetService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getCreativeAsset(id) : Observable<CreativeAsset> {
-		const uri = this.apiUrl + '/CreativeAsset/load/' + id;
+		const uri_ = this.apiUrl + '/CreativeAsset/load/' + id;
 
-		return this.http.get<CreativeAsset>(uri);
+		return this.http.get<CreativeAsset>(uri_);
 	}
 	
 	//********************************************************************
@@ -111,10 +111,10 @@ export class CreativeAssetService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getCreativeAssets() : Observable<CreativeAsset[]> {
-		const uri = this.apiUrl + '/CreativeAsset/';
+		const uri_ = this.apiUrl + '/CreativeAsset/';
 
 		return this
-			.http.get<CreativeAsset[]>(uri);
+			.http.get<CreativeAsset[]>(uri_);
 	}
 	
 		
@@ -356,9 +356,9 @@ export class CreativeAssetService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/CreativeAsset/update/' + this.creativeAsset;
+		const uri_ = this.apiUrl + '/CreativeAsset/update/' + this.creativeAsset;
 
-	return  this.http.post(uri, this.creativeAsset );
+	return  this.http.post(uri_, this.creativeAsset );
 }
 
 	//********************************************************************

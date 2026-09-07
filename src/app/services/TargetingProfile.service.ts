@@ -39,7 +39,7 @@ export class TargetingProfileService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addTargetingProfile(name, AudienceSegments, GeoRegions, ContentCategories, BrandSafetyPolicy, DeviceCriteria) : Observable<any> {
-		const uri = this.apiUrl + '/TargetingProfile/create';
+		const uri_ = this.apiUrl + '/TargetingProfile/create';
 		const obj = {
 			      		name: name,
       		AudienceSegments: AudienceSegments != null && AudienceSegments.length > 0 ? AudienceSegments : null,
@@ -49,7 +49,7 @@ export class TargetingProfileService extends HelperBaseService {
 			DeviceCriteria: DeviceCriteria != null && DeviceCriteria.length > 0 ? DeviceCriteria : null
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -58,7 +58,7 @@ export class TargetingProfileService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateTargetingProfile(name, AudienceSegments, GeoRegions, ContentCategories, BrandSafetyPolicy, DeviceCriteria, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/TargetingProfile/update/' + id;
+			const uri_ = this.apiUrl + '/TargetingProfile/update/' + id;
 		const obj = {
 				      		name: name,
       		AudienceSegments: AudienceSegments != null && AudienceSegments.length > 0 ? AudienceSegments : null,
@@ -67,7 +67,7 @@ export class TargetingProfileService extends HelperBaseService {
       		BrandSafetyPolicy: BrandSafetyPolicy != null && BrandSafetyPolicy.length > 0 ? BrandSafetyPolicy : null,
 			DeviceCriteria: DeviceCriteria != null && DeviceCriteria.length > 0 ? DeviceCriteria : null
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -76,9 +76,9 @@ export class TargetingProfileService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteTargetingProfile(id)  : Observable<any> {
-		const uri = this.apiUrl + '/TargetingProfile/delete/' + id;
+		const uri_ = this.apiUrl + '/TargetingProfile/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -88,9 +88,9 @@ export class TargetingProfileService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getTargetingProfile(id) : Observable<TargetingProfile> {
-		const uri = this.apiUrl + '/TargetingProfile/load/' + id;
+		const uri_ = this.apiUrl + '/TargetingProfile/load/' + id;
 
-		return this.http.get<TargetingProfile>(uri);
+		return this.http.get<TargetingProfile>(uri_);
 	}
 	
 	//********************************************************************
@@ -100,10 +100,10 @@ export class TargetingProfileService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getTargetingProfiles() : Observable<TargetingProfile[]> {
-		const uri = this.apiUrl + '/TargetingProfile/';
+		const uri_ = this.apiUrl + '/TargetingProfile/';
 
 		return this
-			.http.get<TargetingProfile[]>(uri);
+			.http.get<TargetingProfile[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -382,9 +382,9 @@ export class TargetingProfileService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/TargetingProfile/update/' + this.targetingProfile;
+		const uri_ = this.apiUrl + '/TargetingProfile/update/' + this.targetingProfile;
 
-	return  this.http.post(uri, this.targetingProfile );
+	return  this.http.post(uri_, this.targetingProfile );
 }
 
 	//********************************************************************

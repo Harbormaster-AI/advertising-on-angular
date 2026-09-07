@@ -35,7 +35,7 @@ export class DeviceCriterionService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addDeviceCriterion(TargetingProfile, DeviceType, PlatformType, Operator) : Observable<any> {
-		const uri = this.apiUrl + '/DeviceCriterion/create';
+		const uri_ = this.apiUrl + '/DeviceCriterion/create';
 		const obj = {
 			      		TargetingProfile: TargetingProfile != null && TargetingProfile.length > 0 ? TargetingProfile : null,
       		DeviceType: DeviceType,
@@ -43,7 +43,7 @@ export class DeviceCriterionService extends HelperBaseService {
 			Operator: Operator
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -52,14 +52,14 @@ export class DeviceCriterionService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateDeviceCriterion(TargetingProfile, DeviceType, PlatformType, Operator, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/DeviceCriterion/update/' + id;
+			const uri_ = this.apiUrl + '/DeviceCriterion/update/' + id;
 		const obj = {
 				      		TargetingProfile: TargetingProfile != null && TargetingProfile.length > 0 ? TargetingProfile : null,
       		DeviceType: DeviceType,
       		PlatformType: PlatformType,
 			Operator: Operator
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -68,9 +68,9 @@ export class DeviceCriterionService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteDeviceCriterion(id)  : Observable<any> {
-		const uri = this.apiUrl + '/DeviceCriterion/delete/' + id;
+		const uri_ = this.apiUrl + '/DeviceCriterion/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -80,9 +80,9 @@ export class DeviceCriterionService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getDeviceCriterion(id) : Observable<DeviceCriterion> {
-		const uri = this.apiUrl + '/DeviceCriterion/load/' + id;
+		const uri_ = this.apiUrl + '/DeviceCriterion/load/' + id;
 
-		return this.http.get<DeviceCriterion>(uri);
+		return this.http.get<DeviceCriterion>(uri_);
 	}
 	
 	//********************************************************************
@@ -92,10 +92,10 @@ export class DeviceCriterionService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getDeviceCriterions() : Observable<DeviceCriterion[]> {
-		const uri = this.apiUrl + '/DeviceCriterion/';
+		const uri_ = this.apiUrl + '/DeviceCriterion/';
 
 		return this
-			.http.get<DeviceCriterion[]>(uri);
+			.http.get<DeviceCriterion[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -142,9 +142,9 @@ export class DeviceCriterionService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/DeviceCriterion/update/' + this.deviceCriterion;
+		const uri_ = this.apiUrl + '/DeviceCriterion/update/' + this.deviceCriterion;
 
-	return  this.http.post(uri, this.deviceCriterion );
+	return  this.http.post(uri_, this.deviceCriterion );
 }
 
 	//********************************************************************

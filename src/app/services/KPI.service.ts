@@ -35,14 +35,14 @@ export class KPIService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addKPI(targetValue, Campaign, MetricType) : Observable<any> {
-		const uri = this.apiUrl + '/KPI/create';
+		const uri_ = this.apiUrl + '/KPI/create';
 		const obj = {
 			      		targetValue: targetValue,
       		Campaign: Campaign != null && Campaign.length > 0 ? Campaign : null,
 			MetricType: MetricType
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -51,13 +51,13 @@ export class KPIService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateKPI(targetValue, Campaign, MetricType, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/KPI/update/' + id;
+			const uri_ = this.apiUrl + '/KPI/update/' + id;
 		const obj = {
 				      		targetValue: targetValue,
       		Campaign: Campaign != null && Campaign.length > 0 ? Campaign : null,
 			MetricType: MetricType
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -66,9 +66,9 @@ export class KPIService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteKPI(id)  : Observable<any> {
-		const uri = this.apiUrl + '/KPI/delete/' + id;
+		const uri_ = this.apiUrl + '/KPI/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -78,9 +78,9 @@ export class KPIService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getKPI(id) : Observable<KPI> {
-		const uri = this.apiUrl + '/KPI/load/' + id;
+		const uri_ = this.apiUrl + '/KPI/load/' + id;
 
-		return this.http.get<KPI>(uri);
+		return this.http.get<KPI>(uri_);
 	}
 	
 	//********************************************************************
@@ -90,10 +90,10 @@ export class KPIService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getKPIs() : Observable<KPI[]> {
-		const uri = this.apiUrl + '/KPI/';
+		const uri_ = this.apiUrl + '/KPI/';
 
 		return this
-			.http.get<KPI[]>(uri);
+			.http.get<KPI[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -140,9 +140,9 @@ export class KPIService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/KPI/update/' + this.kPI;
+		const uri_ = this.apiUrl + '/KPI/update/' + this.kPI;
 
-	return  this.http.post(uri, this.kPI );
+	return  this.http.post(uri_, this.kPI );
 }
 
 	//********************************************************************

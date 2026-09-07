@@ -41,7 +41,7 @@ export class CampaignService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addCampaign(name, totalBudget, flight, AdAccount, LineItems, Kpis, TrackingPixels, Audiences, Reports, InsertionOrder, Objective, Status) : Observable<any> {
-		const uri = this.apiUrl + '/Campaign/create';
+		const uri_ = this.apiUrl + '/Campaign/create';
 		const obj = {
 			      		name: name,
       		totalBudget: totalBudget,
@@ -57,7 +57,7 @@ export class CampaignService extends HelperBaseService {
 			Status: Status
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -66,7 +66,7 @@ export class CampaignService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateCampaign(name, totalBudget, flight, AdAccount, LineItems, Kpis, TrackingPixels, Audiences, Reports, InsertionOrder, Objective, Status, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/Campaign/update/' + id;
+			const uri_ = this.apiUrl + '/Campaign/update/' + id;
 		const obj = {
 				      		name: name,
       		totalBudget: totalBudget,
@@ -81,7 +81,7 @@ export class CampaignService extends HelperBaseService {
       		Objective: Objective,
 			Status: Status
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -90,9 +90,9 @@ export class CampaignService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteCampaign(id)  : Observable<any> {
-		const uri = this.apiUrl + '/Campaign/delete/' + id;
+		const uri_ = this.apiUrl + '/Campaign/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -102,9 +102,9 @@ export class CampaignService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getCampaign(id) : Observable<Campaign> {
-		const uri = this.apiUrl + '/Campaign/load/' + id;
+		const uri_ = this.apiUrl + '/Campaign/load/' + id;
 
-		return this.http.get<Campaign>(uri);
+		return this.http.get<Campaign>(uri_);
 	}
 	
 	//********************************************************************
@@ -114,10 +114,10 @@ export class CampaignService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getCampaigns() : Observable<Campaign[]> {
-		const uri = this.apiUrl + '/Campaign/';
+		const uri_ = this.apiUrl + '/Campaign/';
 
 		return this
-			.http.get<Campaign[]>(uri);
+			.http.get<Campaign[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -491,9 +491,9 @@ export class CampaignService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/Campaign/update/' + this.campaign;
+		const uri_ = this.apiUrl + '/Campaign/update/' + this.campaign;
 
-	return  this.http.post(uri, this.campaign );
+	return  this.http.post(uri_, this.campaign );
 }
 
 	//********************************************************************

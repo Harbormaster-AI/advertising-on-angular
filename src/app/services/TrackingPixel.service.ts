@@ -37,7 +37,7 @@ export class TrackingPixelService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addTrackingPixel(name, url, Campaign, Advertiser, ConversionEvents, EventType, PixelType) : Observable<any> {
-		const uri = this.apiUrl + '/TrackingPixel/create';
+		const uri_ = this.apiUrl + '/TrackingPixel/create';
 		const obj = {
 			      		name: name,
       		url: url,
@@ -48,7 +48,7 @@ export class TrackingPixelService extends HelperBaseService {
 			PixelType: PixelType
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -57,7 +57,7 @@ export class TrackingPixelService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateTrackingPixel(name, url, Campaign, Advertiser, ConversionEvents, EventType, PixelType, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/TrackingPixel/update/' + id;
+			const uri_ = this.apiUrl + '/TrackingPixel/update/' + id;
 		const obj = {
 				      		name: name,
       		url: url,
@@ -67,7 +67,7 @@ export class TrackingPixelService extends HelperBaseService {
       		EventType: EventType,
 			PixelType: PixelType
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -76,9 +76,9 @@ export class TrackingPixelService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteTrackingPixel(id)  : Observable<any> {
-		const uri = this.apiUrl + '/TrackingPixel/delete/' + id;
+		const uri_ = this.apiUrl + '/TrackingPixel/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -88,9 +88,9 @@ export class TrackingPixelService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getTrackingPixel(id) : Observable<TrackingPixel> {
-		const uri = this.apiUrl + '/TrackingPixel/load/' + id;
+		const uri_ = this.apiUrl + '/TrackingPixel/load/' + id;
 
-		return this.http.get<TrackingPixel>(uri);
+		return this.http.get<TrackingPixel>(uri_);
 	}
 	
 	//********************************************************************
@@ -100,10 +100,10 @@ export class TrackingPixelService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getTrackingPixels() : Observable<TrackingPixel[]> {
-		const uri = this.apiUrl + '/TrackingPixel/';
+		const uri_ = this.apiUrl + '/TrackingPixel/';
 
 		return this
-			.http.get<TrackingPixel[]>(uri);
+			.http.get<TrackingPixel[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -245,9 +245,9 @@ export class TrackingPixelService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/TrackingPixel/update/' + this.trackingPixel;
+		const uri_ = this.apiUrl + '/TrackingPixel/update/' + this.trackingPixel;
 
-	return  this.http.post(uri, this.trackingPixel );
+	return  this.http.post(uri_, this.trackingPixel );
 }
 
 	//********************************************************************

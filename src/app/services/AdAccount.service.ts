@@ -40,7 +40,7 @@ export class AdAccountService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addAdAccount(name, accountCode, defaultCurrency, defaultTimezone, Advertiser, Users, Campaigns, BillingProfile, Dsp, PerformanceMetrics) : Observable<any> {
-		const uri = this.apiUrl + '/AdAccount/create';
+		const uri_ = this.apiUrl + '/AdAccount/create';
 		const obj = {
 			      		name: name,
       		accountCode: accountCode,
@@ -54,7 +54,7 @@ export class AdAccountService extends HelperBaseService {
 			PerformanceMetrics: PerformanceMetrics != null && PerformanceMetrics.length > 0 ? PerformanceMetrics : null
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -63,7 +63,7 @@ export class AdAccountService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateAdAccount(name, accountCode, defaultCurrency, defaultTimezone, Advertiser, Users, Campaigns, BillingProfile, Dsp, PerformanceMetrics, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/AdAccount/update/' + id;
+			const uri_ = this.apiUrl + '/AdAccount/update/' + id;
 		const obj = {
 				      		name: name,
       		accountCode: accountCode,
@@ -76,7 +76,7 @@ export class AdAccountService extends HelperBaseService {
       		Dsp: Dsp != null && Dsp.length > 0 ? Dsp : null,
 			PerformanceMetrics: PerformanceMetrics != null && PerformanceMetrics.length > 0 ? PerformanceMetrics : null
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -85,9 +85,9 @@ export class AdAccountService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteAdAccount(id)  : Observable<any> {
-		const uri = this.apiUrl + '/AdAccount/delete/' + id;
+		const uri_ = this.apiUrl + '/AdAccount/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -97,9 +97,9 @@ export class AdAccountService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getAdAccount(id) : Observable<AdAccount> {
-		const uri = this.apiUrl + '/AdAccount/load/' + id;
+		const uri_ = this.apiUrl + '/AdAccount/load/' + id;
 
-		return this.http.get<AdAccount>(uri);
+		return this.http.get<AdAccount>(uri_);
 	}
 	
 	//********************************************************************
@@ -109,10 +109,10 @@ export class AdAccountService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getAdAccounts() : Observable<AdAccount[]> {
-		const uri = this.apiUrl + '/AdAccount/';
+		const uri_ = this.apiUrl + '/AdAccount/';
 
 		return this
-			.http.get<AdAccount[]>(uri);
+			.http.get<AdAccount[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -407,9 +407,9 @@ export class AdAccountService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/AdAccount/update/' + this.adAccount;
+		const uri_ = this.apiUrl + '/AdAccount/update/' + this.adAccount;
 
-	return  this.http.post(uri, this.adAccount );
+	return  this.http.post(uri_, this.adAccount );
 }
 
 	//********************************************************************

@@ -37,7 +37,7 @@ export class ConversionEventService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addConversionEvent(timestamp, value, Campaign, LineItem, TrackingPixel, EventType, AttributionModel) : Observable<any> {
-		const uri = this.apiUrl + '/ConversionEvent/create';
+		const uri_ = this.apiUrl + '/ConversionEvent/create';
 		const obj = {
 			      		timestamp: timestamp,
       		value: value,
@@ -48,7 +48,7 @@ export class ConversionEventService extends HelperBaseService {
 			AttributionModel: AttributionModel
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -57,7 +57,7 @@ export class ConversionEventService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateConversionEvent(timestamp, value, Campaign, LineItem, TrackingPixel, EventType, AttributionModel, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/ConversionEvent/update/' + id;
+			const uri_ = this.apiUrl + '/ConversionEvent/update/' + id;
 		const obj = {
 				      		timestamp: timestamp,
       		value: value,
@@ -67,7 +67,7 @@ export class ConversionEventService extends HelperBaseService {
       		EventType: EventType,
 			AttributionModel: AttributionModel
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -76,9 +76,9 @@ export class ConversionEventService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteConversionEvent(id)  : Observable<any> {
-		const uri = this.apiUrl + '/ConversionEvent/delete/' + id;
+		const uri_ = this.apiUrl + '/ConversionEvent/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -88,9 +88,9 @@ export class ConversionEventService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getConversionEvent(id) : Observable<ConversionEvent> {
-		const uri = this.apiUrl + '/ConversionEvent/load/' + id;
+		const uri_ = this.apiUrl + '/ConversionEvent/load/' + id;
 
-		return this.http.get<ConversionEvent>(uri);
+		return this.http.get<ConversionEvent>(uri_);
 	}
 	
 	//********************************************************************
@@ -100,10 +100,10 @@ export class ConversionEventService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getConversionEvents() : Observable<ConversionEvent[]> {
-		const uri = this.apiUrl + '/ConversionEvent/';
+		const uri_ = this.apiUrl + '/ConversionEvent/';
 
 		return this
-			.http.get<ConversionEvent[]>(uri);
+			.http.get<ConversionEvent[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -224,9 +224,9 @@ export class ConversionEventService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/ConversionEvent/update/' + this.conversionEvent;
+		const uri_ = this.apiUrl + '/ConversionEvent/update/' + this.conversionEvent;
 
-	return  this.http.post(uri, this.conversionEvent );
+	return  this.http.post(uri_, this.conversionEvent );
 }
 
 	//********************************************************************

@@ -35,7 +35,7 @@ export class PaymentMethodService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addPaymentMethod(last4, cardholderName, billingAddress, BillingProfile, MethodType) : Observable<any> {
-		const uri = this.apiUrl + '/PaymentMethod/create';
+		const uri_ = this.apiUrl + '/PaymentMethod/create';
 		const obj = {
 			      		last4: last4,
       		cardholderName: cardholderName,
@@ -44,7 +44,7 @@ export class PaymentMethodService extends HelperBaseService {
 			MethodType: MethodType
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -53,7 +53,7 @@ export class PaymentMethodService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updatePaymentMethod(last4, cardholderName, billingAddress, BillingProfile, MethodType, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/PaymentMethod/update/' + id;
+			const uri_ = this.apiUrl + '/PaymentMethod/update/' + id;
 		const obj = {
 				      		last4: last4,
       		cardholderName: cardholderName,
@@ -61,7 +61,7 @@ export class PaymentMethodService extends HelperBaseService {
       		BillingProfile: BillingProfile != null && BillingProfile.length > 0 ? BillingProfile : null,
 			MethodType: MethodType
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -70,9 +70,9 @@ export class PaymentMethodService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deletePaymentMethod(id)  : Observable<any> {
-		const uri = this.apiUrl + '/PaymentMethod/delete/' + id;
+		const uri_ = this.apiUrl + '/PaymentMethod/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -82,9 +82,9 @@ export class PaymentMethodService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getPaymentMethod(id) : Observable<PaymentMethod> {
-		const uri = this.apiUrl + '/PaymentMethod/load/' + id;
+		const uri_ = this.apiUrl + '/PaymentMethod/load/' + id;
 
-		return this.http.get<PaymentMethod>(uri);
+		return this.http.get<PaymentMethod>(uri_);
 	}
 	
 	//********************************************************************
@@ -94,10 +94,10 @@ export class PaymentMethodService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getPaymentMethods() : Observable<PaymentMethod[]> {
-		const uri = this.apiUrl + '/PaymentMethod/';
+		const uri_ = this.apiUrl + '/PaymentMethod/';
 
 		return this
-			.http.get<PaymentMethod[]>(uri);
+			.http.get<PaymentMethod[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -144,9 +144,9 @@ export class PaymentMethodService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/PaymentMethod/update/' + this.paymentMethod;
+		const uri_ = this.apiUrl + '/PaymentMethod/update/' + this.paymentMethod;
 
-	return  this.http.post(uri, this.paymentMethod );
+	return  this.http.post(uri_, this.paymentMethod );
 }
 
 	//********************************************************************

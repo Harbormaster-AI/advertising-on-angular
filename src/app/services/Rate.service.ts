@@ -36,7 +36,7 @@ export class RateService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addRate(unitPrice, RateCard, AdSlot, AdFormat, PricingModel) : Observable<any> {
-		const uri = this.apiUrl + '/Rate/create';
+		const uri_ = this.apiUrl + '/Rate/create';
 		const obj = {
 			      		unitPrice: unitPrice,
       		RateCard: RateCard != null && RateCard.length > 0 ? RateCard : null,
@@ -45,7 +45,7 @@ export class RateService extends HelperBaseService {
 			PricingModel: PricingModel
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -54,7 +54,7 @@ export class RateService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateRate(unitPrice, RateCard, AdSlot, AdFormat, PricingModel, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/Rate/update/' + id;
+			const uri_ = this.apiUrl + '/Rate/update/' + id;
 		const obj = {
 				      		unitPrice: unitPrice,
       		RateCard: RateCard != null && RateCard.length > 0 ? RateCard : null,
@@ -62,7 +62,7 @@ export class RateService extends HelperBaseService {
       		AdFormat: AdFormat,
 			PricingModel: PricingModel
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -71,9 +71,9 @@ export class RateService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteRate(id)  : Observable<any> {
-		const uri = this.apiUrl + '/Rate/delete/' + id;
+		const uri_ = this.apiUrl + '/Rate/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -83,9 +83,9 @@ export class RateService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getRate(id) : Observable<Rate> {
-		const uri = this.apiUrl + '/Rate/load/' + id;
+		const uri_ = this.apiUrl + '/Rate/load/' + id;
 
-		return this.http.get<Rate>(uri);
+		return this.http.get<Rate>(uri_);
 	}
 	
 	//********************************************************************
@@ -95,10 +95,10 @@ export class RateService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getRates() : Observable<Rate[]> {
-		const uri = this.apiUrl + '/Rate/';
+		const uri_ = this.apiUrl + '/Rate/';
 
 		return this
-			.http.get<Rate[]>(uri);
+			.http.get<Rate[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -182,9 +182,9 @@ export class RateService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/Rate/update/' + this.rate;
+		const uri_ = this.apiUrl + '/Rate/update/' + this.rate;
 
-	return  this.http.post(uri, this.rate );
+	return  this.http.post(uri_, this.rate );
 }
 
 	//********************************************************************

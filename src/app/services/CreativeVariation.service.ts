@@ -35,7 +35,7 @@ export class CreativeVariationService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addCreativeVariation(name, language, headline, bodyText, callToAction, CreativeAsset) : Observable<any> {
-		const uri = this.apiUrl + '/CreativeVariation/create';
+		const uri_ = this.apiUrl + '/CreativeVariation/create';
 		const obj = {
 			      		name: name,
       		language: language,
@@ -45,7 +45,7 @@ export class CreativeVariationService extends HelperBaseService {
 			CreativeAsset: CreativeAsset != null && CreativeAsset.length > 0 ? CreativeAsset : null
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -54,7 +54,7 @@ export class CreativeVariationService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateCreativeVariation(name, language, headline, bodyText, callToAction, CreativeAsset, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/CreativeVariation/update/' + id;
+			const uri_ = this.apiUrl + '/CreativeVariation/update/' + id;
 		const obj = {
 				      		name: name,
       		language: language,
@@ -63,7 +63,7 @@ export class CreativeVariationService extends HelperBaseService {
       		callToAction: callToAction,
 			CreativeAsset: CreativeAsset != null && CreativeAsset.length > 0 ? CreativeAsset : null
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -72,9 +72,9 @@ export class CreativeVariationService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteCreativeVariation(id)  : Observable<any> {
-		const uri = this.apiUrl + '/CreativeVariation/delete/' + id;
+		const uri_ = this.apiUrl + '/CreativeVariation/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -84,9 +84,9 @@ export class CreativeVariationService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getCreativeVariation(id) : Observable<CreativeVariation> {
-		const uri = this.apiUrl + '/CreativeVariation/load/' + id;
+		const uri_ = this.apiUrl + '/CreativeVariation/load/' + id;
 
-		return this.http.get<CreativeVariation>(uri);
+		return this.http.get<CreativeVariation>(uri_);
 	}
 	
 	//********************************************************************
@@ -96,10 +96,10 @@ export class CreativeVariationService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getCreativeVariations() : Observable<CreativeVariation[]> {
-		const uri = this.apiUrl + '/CreativeVariation/';
+		const uri_ = this.apiUrl + '/CreativeVariation/';
 
 		return this
-			.http.get<CreativeVariation[]>(uri);
+			.http.get<CreativeVariation[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -146,9 +146,9 @@ export class CreativeVariationService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/CreativeVariation/update/' + this.creativeVariation;
+		const uri_ = this.apiUrl + '/CreativeVariation/update/' + this.creativeVariation;
 
-	return  this.http.post(uri, this.creativeVariation );
+	return  this.http.post(uri_, this.creativeVariation );
 }
 
 	//********************************************************************

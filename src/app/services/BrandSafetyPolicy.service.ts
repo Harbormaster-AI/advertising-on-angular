@@ -35,14 +35,14 @@ export class BrandSafetyPolicyService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addBrandSafetyPolicy(TargetingProfiles, Level, ContentRatingThreshold) : Observable<any> {
-		const uri = this.apiUrl + '/BrandSafetyPolicy/create';
+		const uri_ = this.apiUrl + '/BrandSafetyPolicy/create';
 		const obj = {
 			      		TargetingProfiles: TargetingProfiles != null && TargetingProfiles.length > 0 ? TargetingProfiles : null,
       		Level: Level,
 			ContentRatingThreshold: ContentRatingThreshold
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -51,13 +51,13 @@ export class BrandSafetyPolicyService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateBrandSafetyPolicy(TargetingProfiles, Level, ContentRatingThreshold, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/BrandSafetyPolicy/update/' + id;
+			const uri_ = this.apiUrl + '/BrandSafetyPolicy/update/' + id;
 		const obj = {
 				      		TargetingProfiles: TargetingProfiles != null && TargetingProfiles.length > 0 ? TargetingProfiles : null,
       		Level: Level,
 			ContentRatingThreshold: ContentRatingThreshold
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -66,9 +66,9 @@ export class BrandSafetyPolicyService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteBrandSafetyPolicy(id)  : Observable<any> {
-		const uri = this.apiUrl + '/BrandSafetyPolicy/delete/' + id;
+		const uri_ = this.apiUrl + '/BrandSafetyPolicy/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -78,9 +78,9 @@ export class BrandSafetyPolicyService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getBrandSafetyPolicy(id) : Observable<BrandSafetyPolicy> {
-		const uri = this.apiUrl + '/BrandSafetyPolicy/load/' + id;
+		const uri_ = this.apiUrl + '/BrandSafetyPolicy/load/' + id;
 
-		return this.http.get<BrandSafetyPolicy>(uri);
+		return this.http.get<BrandSafetyPolicy>(uri_);
 	}
 	
 	//********************************************************************
@@ -90,10 +90,10 @@ export class BrandSafetyPolicyService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getBrandSafetyPolicys() : Observable<BrandSafetyPolicy[]> {
-		const uri = this.apiUrl + '/BrandSafetyPolicy/';
+		const uri_ = this.apiUrl + '/BrandSafetyPolicy/';
 
 		return this
-			.http.get<BrandSafetyPolicy[]>(uri);
+			.http.get<BrandSafetyPolicy[]>(uri_);
 	}
 	
 		
@@ -161,9 +161,9 @@ export class BrandSafetyPolicyService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/BrandSafetyPolicy/update/' + this.brandSafetyPolicy;
+		const uri_ = this.apiUrl + '/BrandSafetyPolicy/update/' + this.brandSafetyPolicy;
 
-	return  this.http.post(uri, this.brandSafetyPolicy );
+	return  this.http.post(uri_, this.brandSafetyPolicy );
 }
 
 	//********************************************************************

@@ -40,7 +40,7 @@ export class LineItemService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addLineItem(name, bidAmount, dailyBudget, frequencyCap, Campaign, Placements, TargetingProfile, Deal, Creatives, PerformanceMetrics, Status, PricingModel, BidStrategy, Pacing) : Observable<any> {
-		const uri = this.apiUrl + '/LineItem/create';
+		const uri_ = this.apiUrl + '/LineItem/create';
 		const obj = {
 			      		name: name,
       		bidAmount: bidAmount,
@@ -58,7 +58,7 @@ export class LineItemService extends HelperBaseService {
 			Pacing: Pacing
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -67,7 +67,7 @@ export class LineItemService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateLineItem(name, bidAmount, dailyBudget, frequencyCap, Campaign, Placements, TargetingProfile, Deal, Creatives, PerformanceMetrics, Status, PricingModel, BidStrategy, Pacing, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/LineItem/update/' + id;
+			const uri_ = this.apiUrl + '/LineItem/update/' + id;
 		const obj = {
 				      		name: name,
       		bidAmount: bidAmount,
@@ -84,7 +84,7 @@ export class LineItemService extends HelperBaseService {
       		BidStrategy: BidStrategy,
 			Pacing: Pacing
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -93,9 +93,9 @@ export class LineItemService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteLineItem(id)  : Observable<any> {
-		const uri = this.apiUrl + '/LineItem/delete/' + id;
+		const uri_ = this.apiUrl + '/LineItem/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -105,9 +105,9 @@ export class LineItemService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getLineItem(id) : Observable<LineItem> {
-		const uri = this.apiUrl + '/LineItem/load/' + id;
+		const uri_ = this.apiUrl + '/LineItem/load/' + id;
 
-		return this.http.get<LineItem>(uri);
+		return this.http.get<LineItem>(uri_);
 	}
 	
 	//********************************************************************
@@ -117,10 +117,10 @@ export class LineItemService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getLineItems() : Observable<LineItem[]> {
-		const uri = this.apiUrl + '/LineItem/';
+		const uri_ = this.apiUrl + '/LineItem/';
 
 		return this
-			.http.get<LineItem[]>(uri);
+			.http.get<LineItem[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -415,9 +415,9 @@ export class LineItemService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/LineItem/update/' + this.lineItem;
+		const uri_ = this.apiUrl + '/LineItem/update/' + this.lineItem;
 
-	return  this.http.post(uri, this.lineItem );
+	return  this.http.post(uri_, this.lineItem );
 }
 
 	//********************************************************************

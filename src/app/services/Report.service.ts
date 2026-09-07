@@ -37,7 +37,7 @@ export class ReportService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addReport(reportName, generatedAt, fileUrl, AdAccount, Campaign, LineItem, ReportType) : Observable<any> {
-		const uri = this.apiUrl + '/Report/create';
+		const uri_ = this.apiUrl + '/Report/create';
 		const obj = {
 			      		reportName: reportName,
       		generatedAt: generatedAt,
@@ -48,7 +48,7 @@ export class ReportService extends HelperBaseService {
 			ReportType: ReportType
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -57,7 +57,7 @@ export class ReportService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateReport(reportName, generatedAt, fileUrl, AdAccount, Campaign, LineItem, ReportType, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/Report/update/' + id;
+			const uri_ = this.apiUrl + '/Report/update/' + id;
 		const obj = {
 				      		reportName: reportName,
       		generatedAt: generatedAt,
@@ -67,7 +67,7 @@ export class ReportService extends HelperBaseService {
       		LineItem: LineItem != null && LineItem.length > 0 ? LineItem : null,
 			ReportType: ReportType
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -76,9 +76,9 @@ export class ReportService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteReport(id)  : Observable<any> {
-		const uri = this.apiUrl + '/Report/delete/' + id;
+		const uri_ = this.apiUrl + '/Report/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -88,9 +88,9 @@ export class ReportService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getReport(id) : Observable<Report> {
-		const uri = this.apiUrl + '/Report/load/' + id;
+		const uri_ = this.apiUrl + '/Report/load/' + id;
 
-		return this.http.get<Report>(uri);
+		return this.http.get<Report>(uri_);
 	}
 	
 	//********************************************************************
@@ -100,10 +100,10 @@ export class ReportService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getReports() : Observable<Report[]> {
-		const uri = this.apiUrl + '/Report/';
+		const uri_ = this.apiUrl + '/Report/';
 
 		return this
-			.http.get<Report[]>(uri);
+			.http.get<Report[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -224,9 +224,9 @@ export class ReportService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/Report/update/' + this.report;
+		const uri_ = this.apiUrl + '/Report/update/' + this.report;
 
-	return  this.http.post(uri, this.report );
+	return  this.http.post(uri_, this.report );
 }
 
 	//********************************************************************

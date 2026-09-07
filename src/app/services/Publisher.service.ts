@@ -39,7 +39,7 @@ export class PublisherService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addPublisher(name, website, InventorySources, Deals, CreativeApprovals, InsertionOrders, RateCards, PublisherType) : Observable<any> {
-		const uri = this.apiUrl + '/Publisher/create';
+		const uri_ = this.apiUrl + '/Publisher/create';
 		const obj = {
 			      		name: name,
       		website: website,
@@ -51,7 +51,7 @@ export class PublisherService extends HelperBaseService {
 			PublisherType: PublisherType
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -60,7 +60,7 @@ export class PublisherService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updatePublisher(name, website, InventorySources, Deals, CreativeApprovals, InsertionOrders, RateCards, PublisherType, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/Publisher/update/' + id;
+			const uri_ = this.apiUrl + '/Publisher/update/' + id;
 		const obj = {
 				      		name: name,
       		website: website,
@@ -71,7 +71,7 @@ export class PublisherService extends HelperBaseService {
       		RateCards: RateCards != null && RateCards.length > 0 ? RateCards : null,
 			PublisherType: PublisherType
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -80,9 +80,9 @@ export class PublisherService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deletePublisher(id)  : Observable<any> {
-		const uri = this.apiUrl + '/Publisher/delete/' + id;
+		const uri_ = this.apiUrl + '/Publisher/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -92,9 +92,9 @@ export class PublisherService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getPublisher(id) : Observable<Publisher> {
-		const uri = this.apiUrl + '/Publisher/load/' + id;
+		const uri_ = this.apiUrl + '/Publisher/load/' + id;
 
-		return this.http.get<Publisher>(uri);
+		return this.http.get<Publisher>(uri_);
 	}
 	
 	//********************************************************************
@@ -104,10 +104,10 @@ export class PublisherService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getPublishers() : Observable<Publisher[]> {
-		const uri = this.apiUrl + '/Publisher/';
+		const uri_ = this.apiUrl + '/Publisher/';
 
 		return this
-			.http.get<Publisher[]>(uri);
+			.http.get<Publisher[]>(uri_);
 	}
 	
 		
@@ -407,9 +407,9 @@ export class PublisherService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/Publisher/update/' + this.publisher;
+		const uri_ = this.apiUrl + '/Publisher/update/' + this.publisher;
 
-	return  this.http.post(uri, this.publisher );
+	return  this.http.post(uri_, this.publisher );
 }
 
 	//********************************************************************

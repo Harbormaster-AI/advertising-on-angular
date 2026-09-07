@@ -37,7 +37,7 @@ export class InventorySourceService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addInventorySource(name, domain, Publisher, AdSlots, Deals, Channel, PrimaryFormat) : Observable<any> {
-		const uri = this.apiUrl + '/InventorySource/create';
+		const uri_ = this.apiUrl + '/InventorySource/create';
 		const obj = {
 			      		name: name,
       		domain: domain,
@@ -48,7 +48,7 @@ export class InventorySourceService extends HelperBaseService {
 			PrimaryFormat: PrimaryFormat
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -57,7 +57,7 @@ export class InventorySourceService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateInventorySource(name, domain, Publisher, AdSlots, Deals, Channel, PrimaryFormat, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/InventorySource/update/' + id;
+			const uri_ = this.apiUrl + '/InventorySource/update/' + id;
 		const obj = {
 				      		name: name,
       		domain: domain,
@@ -67,7 +67,7 @@ export class InventorySourceService extends HelperBaseService {
       		Channel: Channel,
 			PrimaryFormat: PrimaryFormat
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -76,9 +76,9 @@ export class InventorySourceService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteInventorySource(id)  : Observable<any> {
-		const uri = this.apiUrl + '/InventorySource/delete/' + id;
+		const uri_ = this.apiUrl + '/InventorySource/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -88,9 +88,9 @@ export class InventorySourceService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getInventorySource(id) : Observable<InventorySource> {
-		const uri = this.apiUrl + '/InventorySource/load/' + id;
+		const uri_ = this.apiUrl + '/InventorySource/load/' + id;
 
-		return this.http.get<InventorySource>(uri);
+		return this.http.get<InventorySource>(uri_);
 	}
 	
 	//********************************************************************
@@ -100,10 +100,10 @@ export class InventorySourceService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getInventorySources() : Observable<InventorySource[]> {
-		const uri = this.apiUrl + '/InventorySource/';
+		const uri_ = this.apiUrl + '/InventorySource/';
 
 		return this
-			.http.get<InventorySource[]>(uri);
+			.http.get<InventorySource[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -266,9 +266,9 @@ export class InventorySourceService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/InventorySource/update/' + this.inventorySource;
+		const uri_ = this.apiUrl + '/InventorySource/update/' + this.inventorySource;
 
-	return  this.http.post(uri, this.inventorySource );
+	return  this.http.post(uri_, this.inventorySource );
 }
 
 	//********************************************************************

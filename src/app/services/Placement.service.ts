@@ -37,7 +37,7 @@ export class PlacementService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addPlacement(name, flight, goalImpressions, LineItem, AdSlot, Deal) : Observable<any> {
-		const uri = this.apiUrl + '/Placement/create';
+		const uri_ = this.apiUrl + '/Placement/create';
 		const obj = {
 			      		name: name,
       		flight: flight,
@@ -47,7 +47,7 @@ export class PlacementService extends HelperBaseService {
 			Deal: Deal != null && Deal.length > 0 ? Deal : null
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -56,7 +56,7 @@ export class PlacementService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updatePlacement(name, flight, goalImpressions, LineItem, AdSlot, Deal, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/Placement/update/' + id;
+			const uri_ = this.apiUrl + '/Placement/update/' + id;
 		const obj = {
 				      		name: name,
       		flight: flight,
@@ -65,7 +65,7 @@ export class PlacementService extends HelperBaseService {
       		AdSlot: AdSlot != null && AdSlot.length > 0 ? AdSlot : null,
 			Deal: Deal != null && Deal.length > 0 ? Deal : null
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -74,9 +74,9 @@ export class PlacementService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deletePlacement(id)  : Observable<any> {
-		const uri = this.apiUrl + '/Placement/delete/' + id;
+		const uri_ = this.apiUrl + '/Placement/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -86,9 +86,9 @@ export class PlacementService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getPlacement(id) : Observable<Placement> {
-		const uri = this.apiUrl + '/Placement/load/' + id;
+		const uri_ = this.apiUrl + '/Placement/load/' + id;
 
-		return this.http.get<Placement>(uri);
+		return this.http.get<Placement>(uri_);
 	}
 	
 	//********************************************************************
@@ -98,10 +98,10 @@ export class PlacementService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getPlacements() : Observable<Placement[]> {
-		const uri = this.apiUrl + '/Placement/';
+		const uri_ = this.apiUrl + '/Placement/';
 
 		return this
-			.http.get<Placement[]>(uri);
+			.http.get<Placement[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -222,9 +222,9 @@ export class PlacementService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/Placement/update/' + this.placement;
+		const uri_ = this.apiUrl + '/Placement/update/' + this.placement;
 
-	return  this.http.post(uri, this.placement );
+	return  this.http.post(uri_, this.placement );
 }
 
 	//********************************************************************

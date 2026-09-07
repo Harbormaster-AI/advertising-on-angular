@@ -35,7 +35,7 @@ export class CreativeFileService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addCreativeFile(uri, fileSizeKB, mimeType, checksum, CreativeAsset) : Observable<any> {
-		const uri = this.apiUrl + '/CreativeFile/create';
+		const uri_ = this.apiUrl + '/CreativeFile/create';
 		const obj = {
 			      		uri: uri,
       		fileSizeKB: fileSizeKB,
@@ -44,7 +44,7 @@ export class CreativeFileService extends HelperBaseService {
 			CreativeAsset: CreativeAsset != null && CreativeAsset.length > 0 ? CreativeAsset : null
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -53,7 +53,7 @@ export class CreativeFileService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateCreativeFile(uri, fileSizeKB, mimeType, checksum, CreativeAsset, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/CreativeFile/update/' + id;
+			const uri_ = this.apiUrl + '/CreativeFile/update/' + id;
 		const obj = {
 				      		uri: uri,
       		fileSizeKB: fileSizeKB,
@@ -61,7 +61,7 @@ export class CreativeFileService extends HelperBaseService {
       		checksum: checksum,
 			CreativeAsset: CreativeAsset != null && CreativeAsset.length > 0 ? CreativeAsset : null
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -70,9 +70,9 @@ export class CreativeFileService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteCreativeFile(id)  : Observable<any> {
-		const uri = this.apiUrl + '/CreativeFile/delete/' + id;
+		const uri_ = this.apiUrl + '/CreativeFile/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -82,9 +82,9 @@ export class CreativeFileService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getCreativeFile(id) : Observable<CreativeFile> {
-		const uri = this.apiUrl + '/CreativeFile/load/' + id;
+		const uri_ = this.apiUrl + '/CreativeFile/load/' + id;
 
-		return this.http.get<CreativeFile>(uri);
+		return this.http.get<CreativeFile>(uri_);
 	}
 	
 	//********************************************************************
@@ -94,10 +94,10 @@ export class CreativeFileService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getCreativeFiles() : Observable<CreativeFile[]> {
-		const uri = this.apiUrl + '/CreativeFile/';
+		const uri_ = this.apiUrl + '/CreativeFile/';
 
 		return this
-			.http.get<CreativeFile[]>(uri);
+			.http.get<CreativeFile[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -144,9 +144,9 @@ export class CreativeFileService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/CreativeFile/update/' + this.creativeFile;
+		const uri_ = this.apiUrl + '/CreativeFile/update/' + this.creativeFile;
 
-	return  this.http.post(uri, this.creativeFile );
+	return  this.http.post(uri_, this.creativeFile );
 }
 
 	//********************************************************************

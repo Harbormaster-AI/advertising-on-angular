@@ -37,7 +37,7 @@ export class BillingProfileService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addBillingProfile(billingName, taxId, billingAddress, Advertiser, PaymentMethods, AdAccounts, PaymentTerms) : Observable<any> {
-		const uri = this.apiUrl + '/BillingProfile/create';
+		const uri_ = this.apiUrl + '/BillingProfile/create';
 		const obj = {
 			      		billingName: billingName,
       		taxId: taxId,
@@ -48,7 +48,7 @@ export class BillingProfileService extends HelperBaseService {
 			PaymentTerms: PaymentTerms
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -57,7 +57,7 @@ export class BillingProfileService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateBillingProfile(billingName, taxId, billingAddress, Advertiser, PaymentMethods, AdAccounts, PaymentTerms, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/BillingProfile/update/' + id;
+			const uri_ = this.apiUrl + '/BillingProfile/update/' + id;
 		const obj = {
 				      		billingName: billingName,
       		taxId: taxId,
@@ -67,7 +67,7 @@ export class BillingProfileService extends HelperBaseService {
       		AdAccounts: AdAccounts != null && AdAccounts.length > 0 ? AdAccounts : null,
 			PaymentTerms: PaymentTerms
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -76,9 +76,9 @@ export class BillingProfileService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteBillingProfile(id)  : Observable<any> {
-		const uri = this.apiUrl + '/BillingProfile/delete/' + id;
+		const uri_ = this.apiUrl + '/BillingProfile/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -88,9 +88,9 @@ export class BillingProfileService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getBillingProfile(id) : Observable<BillingProfile> {
-		const uri = this.apiUrl + '/BillingProfile/load/' + id;
+		const uri_ = this.apiUrl + '/BillingProfile/load/' + id;
 
-		return this.http.get<BillingProfile>(uri);
+		return this.http.get<BillingProfile>(uri_);
 	}
 	
 	//********************************************************************
@@ -100,10 +100,10 @@ export class BillingProfileService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getBillingProfiles() : Observable<BillingProfile[]> {
-		const uri = this.apiUrl + '/BillingProfile/';
+		const uri_ = this.apiUrl + '/BillingProfile/';
 
 		return this
-			.http.get<BillingProfile[]>(uri);
+			.http.get<BillingProfile[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -266,9 +266,9 @@ export class BillingProfileService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/BillingProfile/update/' + this.billingProfile;
+		const uri_ = this.apiUrl + '/BillingProfile/update/' + this.billingProfile;
 
-	return  this.http.post(uri, this.billingProfile );
+	return  this.http.post(uri_, this.billingProfile );
 }
 
 	//********************************************************************

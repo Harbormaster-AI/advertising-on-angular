@@ -39,7 +39,7 @@ export class PerformanceMetricService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addPerformanceMetric(date, value, AdAccount, Campaign, LineItem, Placement, CreativeAsset, MetricType) : Observable<any> {
-		const uri = this.apiUrl + '/PerformanceMetric/create';
+		const uri_ = this.apiUrl + '/PerformanceMetric/create';
 		const obj = {
 			      		date: date,
       		value: value,
@@ -51,7 +51,7 @@ export class PerformanceMetricService extends HelperBaseService {
 			MetricType: MetricType
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -60,7 +60,7 @@ export class PerformanceMetricService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updatePerformanceMetric(date, value, AdAccount, Campaign, LineItem, Placement, CreativeAsset, MetricType, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/PerformanceMetric/update/' + id;
+			const uri_ = this.apiUrl + '/PerformanceMetric/update/' + id;
 		const obj = {
 				      		date: date,
       		value: value,
@@ -71,7 +71,7 @@ export class PerformanceMetricService extends HelperBaseService {
       		CreativeAsset: CreativeAsset != null && CreativeAsset.length > 0 ? CreativeAsset : null,
 			MetricType: MetricType
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -80,9 +80,9 @@ export class PerformanceMetricService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deletePerformanceMetric(id)  : Observable<any> {
-		const uri = this.apiUrl + '/PerformanceMetric/delete/' + id;
+		const uri_ = this.apiUrl + '/PerformanceMetric/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -92,9 +92,9 @@ export class PerformanceMetricService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getPerformanceMetric(id) : Observable<PerformanceMetric> {
-		const uri = this.apiUrl + '/PerformanceMetric/load/' + id;
+		const uri_ = this.apiUrl + '/PerformanceMetric/load/' + id;
 
-		return this.http.get<PerformanceMetric>(uri);
+		return this.http.get<PerformanceMetric>(uri_);
 	}
 	
 	//********************************************************************
@@ -104,10 +104,10 @@ export class PerformanceMetricService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getPerformanceMetrics() : Observable<PerformanceMetric[]> {
-		const uri = this.apiUrl + '/PerformanceMetric/';
+		const uri_ = this.apiUrl + '/PerformanceMetric/';
 
 		return this
-			.http.get<PerformanceMetric[]>(uri);
+			.http.get<PerformanceMetric[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -302,9 +302,9 @@ export class PerformanceMetricService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/PerformanceMetric/update/' + this.performanceMetric;
+		const uri_ = this.apiUrl + '/PerformanceMetric/update/' + this.performanceMetric;
 
-	return  this.http.post(uri, this.performanceMetric );
+	return  this.http.post(uri_, this.performanceMetric );
 }
 
 	//********************************************************************

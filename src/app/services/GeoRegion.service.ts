@@ -34,7 +34,7 @@ export class GeoRegionService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addGeoRegion(code, name, Parent, Children, RegionType) : Observable<any> {
-		const uri = this.apiUrl + '/GeoRegion/create';
+		const uri_ = this.apiUrl + '/GeoRegion/create';
 		const obj = {
 			      		code: code,
       		name: name,
@@ -43,7 +43,7 @@ export class GeoRegionService extends HelperBaseService {
 			RegionType: RegionType
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -52,7 +52,7 @@ export class GeoRegionService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateGeoRegion(code, name, Parent, Children, RegionType, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/GeoRegion/update/' + id;
+			const uri_ = this.apiUrl + '/GeoRegion/update/' + id;
 		const obj = {
 				      		code: code,
       		name: name,
@@ -60,7 +60,7 @@ export class GeoRegionService extends HelperBaseService {
       		Children: Children != null && Children.length > 0 ? Children : null,
 			RegionType: RegionType
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -69,9 +69,9 @@ export class GeoRegionService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteGeoRegion(id)  : Observable<any> {
-		const uri = this.apiUrl + '/GeoRegion/delete/' + id;
+		const uri_ = this.apiUrl + '/GeoRegion/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -81,9 +81,9 @@ export class GeoRegionService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getGeoRegion(id) : Observable<GeoRegion> {
-		const uri = this.apiUrl + '/GeoRegion/load/' + id;
+		const uri_ = this.apiUrl + '/GeoRegion/load/' + id;
 
-		return this.http.get<GeoRegion>(uri);
+		return this.http.get<GeoRegion>(uri_);
 	}
 	
 	//********************************************************************
@@ -93,10 +93,10 @@ export class GeoRegionService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getGeoRegions() : Observable<GeoRegion[]> {
-		const uri = this.apiUrl + '/GeoRegion/';
+		const uri_ = this.apiUrl + '/GeoRegion/';
 
 		return this
-			.http.get<GeoRegion[]>(uri);
+			.http.get<GeoRegion[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -201,9 +201,9 @@ export class GeoRegionService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/GeoRegion/update/' + this.geoRegion;
+		const uri_ = this.apiUrl + '/GeoRegion/update/' + this.geoRegion;
 
-	return  this.http.post(uri, this.geoRegion );
+	return  this.http.post(uri_, this.geoRegion );
 }
 
 	//********************************************************************

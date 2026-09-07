@@ -37,7 +37,7 @@ export class UserService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addUser(firstName, lastName, email, Agency, Teams, AdAccounts, Role) : Observable<any> {
-		const uri = this.apiUrl + '/User/create';
+		const uri_ = this.apiUrl + '/User/create';
 		const obj = {
 			      		firstName: firstName,
       		lastName: lastName,
@@ -48,7 +48,7 @@ export class UserService extends HelperBaseService {
 			Role: Role
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -57,7 +57,7 @@ export class UserService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateUser(firstName, lastName, email, Agency, Teams, AdAccounts, Role, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/User/update/' + id;
+			const uri_ = this.apiUrl + '/User/update/' + id;
 		const obj = {
 				      		firstName: firstName,
       		lastName: lastName,
@@ -67,7 +67,7 @@ export class UserService extends HelperBaseService {
       		AdAccounts: AdAccounts != null && AdAccounts.length > 0 ? AdAccounts : null,
 			Role: Role
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -76,9 +76,9 @@ export class UserService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteUser(id)  : Observable<any> {
-		const uri = this.apiUrl + '/User/delete/' + id;
+		const uri_ = this.apiUrl + '/User/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -88,9 +88,9 @@ export class UserService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getUser(id) : Observable<User> {
-		const uri = this.apiUrl + '/User/load/' + id;
+		const uri_ = this.apiUrl + '/User/load/' + id;
 
-		return this.http.get<User>(uri);
+		return this.http.get<User>(uri_);
 	}
 	
 	//********************************************************************
@@ -100,10 +100,10 @@ export class UserService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getUsers() : Observable<User[]> {
-		const uri = this.apiUrl + '/User/';
+		const uri_ = this.apiUrl + '/User/';
 
 		return this
-			.http.get<User[]>(uri);
+			.http.get<User[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -266,9 +266,9 @@ export class UserService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/User/update/' + this.user;
+		const uri_ = this.apiUrl + '/User/update/' + this.user;
 
-	return  this.http.post(uri, this.user );
+	return  this.http.post(uri_, this.user );
 }
 
 	//********************************************************************

@@ -36,7 +36,7 @@ export class AudienceSegmentService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addAudienceSegment(name, estimatedReach, description, Provider, Campaigns, ProviderType) : Observable<any> {
-		const uri = this.apiUrl + '/AudienceSegment/create';
+		const uri_ = this.apiUrl + '/AudienceSegment/create';
 		const obj = {
 			      		name: name,
       		estimatedReach: estimatedReach,
@@ -46,7 +46,7 @@ export class AudienceSegmentService extends HelperBaseService {
 			ProviderType: ProviderType
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -55,7 +55,7 @@ export class AudienceSegmentService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateAudienceSegment(name, estimatedReach, description, Provider, Campaigns, ProviderType, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/AudienceSegment/update/' + id;
+			const uri_ = this.apiUrl + '/AudienceSegment/update/' + id;
 		const obj = {
 				      		name: name,
       		estimatedReach: estimatedReach,
@@ -64,7 +64,7 @@ export class AudienceSegmentService extends HelperBaseService {
       		Campaigns: Campaigns != null && Campaigns.length > 0 ? Campaigns : null,
 			ProviderType: ProviderType
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -73,9 +73,9 @@ export class AudienceSegmentService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteAudienceSegment(id)  : Observable<any> {
-		const uri = this.apiUrl + '/AudienceSegment/delete/' + id;
+		const uri_ = this.apiUrl + '/AudienceSegment/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -85,9 +85,9 @@ export class AudienceSegmentService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getAudienceSegment(id) : Observable<AudienceSegment> {
-		const uri = this.apiUrl + '/AudienceSegment/load/' + id;
+		const uri_ = this.apiUrl + '/AudienceSegment/load/' + id;
 
-		return this.http.get<AudienceSegment>(uri);
+		return this.http.get<AudienceSegment>(uri_);
 	}
 	
 	//********************************************************************
@@ -97,10 +97,10 @@ export class AudienceSegmentService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getAudienceSegments() : Observable<AudienceSegment[]> {
-		const uri = this.apiUrl + '/AudienceSegment/';
+		const uri_ = this.apiUrl + '/AudienceSegment/';
 
 		return this
-			.http.get<AudienceSegment[]>(uri);
+			.http.get<AudienceSegment[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -205,9 +205,9 @@ export class AudienceSegmentService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/AudienceSegment/update/' + this.audienceSegment;
+		const uri_ = this.apiUrl + '/AudienceSegment/update/' + this.audienceSegment;
 
-	return  this.http.post(uri, this.audienceSegment );
+	return  this.http.post(uri_, this.audienceSegment );
 }
 
 	//********************************************************************

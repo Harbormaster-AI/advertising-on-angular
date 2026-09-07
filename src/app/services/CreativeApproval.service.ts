@@ -36,7 +36,7 @@ export class CreativeApprovalService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addCreativeApproval(reviewer, reviewedAt, CreativeAsset, Publisher, Status) : Observable<any> {
-		const uri = this.apiUrl + '/CreativeApproval/create';
+		const uri_ = this.apiUrl + '/CreativeApproval/create';
 		const obj = {
 			      		reviewer: reviewer,
       		reviewedAt: reviewedAt,
@@ -45,7 +45,7 @@ export class CreativeApprovalService extends HelperBaseService {
 			Status: Status
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -54,7 +54,7 @@ export class CreativeApprovalService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateCreativeApproval(reviewer, reviewedAt, CreativeAsset, Publisher, Status, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/CreativeApproval/update/' + id;
+			const uri_ = this.apiUrl + '/CreativeApproval/update/' + id;
 		const obj = {
 				      		reviewer: reviewer,
       		reviewedAt: reviewedAt,
@@ -62,7 +62,7 @@ export class CreativeApprovalService extends HelperBaseService {
       		Publisher: Publisher != null && Publisher.length > 0 ? Publisher : null,
 			Status: Status
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -71,9 +71,9 @@ export class CreativeApprovalService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteCreativeApproval(id)  : Observable<any> {
-		const uri = this.apiUrl + '/CreativeApproval/delete/' + id;
+		const uri_ = this.apiUrl + '/CreativeApproval/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -83,9 +83,9 @@ export class CreativeApprovalService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getCreativeApproval(id) : Observable<CreativeApproval> {
-		const uri = this.apiUrl + '/CreativeApproval/load/' + id;
+		const uri_ = this.apiUrl + '/CreativeApproval/load/' + id;
 
-		return this.http.get<CreativeApproval>(uri);
+		return this.http.get<CreativeApproval>(uri_);
 	}
 	
 	//********************************************************************
@@ -95,10 +95,10 @@ export class CreativeApprovalService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getCreativeApprovals() : Observable<CreativeApproval[]> {
-		const uri = this.apiUrl + '/CreativeApproval/';
+		const uri_ = this.apiUrl + '/CreativeApproval/';
 
 		return this
-			.http.get<CreativeApproval[]>(uri);
+			.http.get<CreativeApproval[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -182,9 +182,9 @@ export class CreativeApprovalService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/CreativeApproval/update/' + this.creativeApproval;
+		const uri_ = this.apiUrl + '/CreativeApproval/update/' + this.creativeApproval;
 
-	return  this.http.post(uri, this.creativeApproval );
+	return  this.http.post(uri_, this.creativeApproval );
 }
 
 	//********************************************************************

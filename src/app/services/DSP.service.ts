@@ -35,7 +35,7 @@ export class DSPService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addDSP(name, website, region, AdAccounts) : Observable<any> {
-		const uri = this.apiUrl + '/DSP/create';
+		const uri_ = this.apiUrl + '/DSP/create';
 		const obj = {
 			      		name: name,
       		website: website,
@@ -43,7 +43,7 @@ export class DSPService extends HelperBaseService {
 			AdAccounts: AdAccounts != null && AdAccounts.length > 0 ? AdAccounts : null
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -52,14 +52,14 @@ export class DSPService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateDSP(name, website, region, AdAccounts, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/DSP/update/' + id;
+			const uri_ = this.apiUrl + '/DSP/update/' + id;
 		const obj = {
 				      		name: name,
       		website: website,
       		region: region,
 			AdAccounts: AdAccounts != null && AdAccounts.length > 0 ? AdAccounts : null
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -68,9 +68,9 @@ export class DSPService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteDSP(id)  : Observable<any> {
-		const uri = this.apiUrl + '/DSP/delete/' + id;
+		const uri_ = this.apiUrl + '/DSP/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -80,9 +80,9 @@ export class DSPService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getDSP(id) : Observable<DSP> {
-		const uri = this.apiUrl + '/DSP/load/' + id;
+		const uri_ = this.apiUrl + '/DSP/load/' + id;
 
-		return this.http.get<DSP>(uri);
+		return this.http.get<DSP>(uri_);
 	}
 	
 	//********************************************************************
@@ -92,10 +92,10 @@ export class DSPService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getDSPs() : Observable<DSP[]> {
-		const uri = this.apiUrl + '/DSP/';
+		const uri_ = this.apiUrl + '/DSP/';
 
 		return this
-			.http.get<DSP[]>(uri);
+			.http.get<DSP[]>(uri_);
 	}
 	
 		
@@ -163,9 +163,9 @@ export class DSPService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/DSP/update/' + this.dSP;
+		const uri_ = this.apiUrl + '/DSP/update/' + this.dSP;
 
-	return  this.http.post(uri, this.dSP );
+	return  this.http.post(uri_, this.dSP );
 }
 
 	//********************************************************************

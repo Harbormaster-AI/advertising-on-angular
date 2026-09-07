@@ -35,7 +35,7 @@ export class DataProviderService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addDataProvider(name, website, AudienceSegments, ProviderType) : Observable<any> {
-		const uri = this.apiUrl + '/DataProvider/create';
+		const uri_ = this.apiUrl + '/DataProvider/create';
 		const obj = {
 			      		name: name,
       		website: website,
@@ -43,7 +43,7 @@ export class DataProviderService extends HelperBaseService {
 			ProviderType: ProviderType
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -52,14 +52,14 @@ export class DataProviderService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateDataProvider(name, website, AudienceSegments, ProviderType, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/DataProvider/update/' + id;
+			const uri_ = this.apiUrl + '/DataProvider/update/' + id;
 		const obj = {
 				      		name: name,
       		website: website,
       		AudienceSegments: AudienceSegments != null && AudienceSegments.length > 0 ? AudienceSegments : null,
 			ProviderType: ProviderType
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -68,9 +68,9 @@ export class DataProviderService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteDataProvider(id)  : Observable<any> {
-		const uri = this.apiUrl + '/DataProvider/delete/' + id;
+		const uri_ = this.apiUrl + '/DataProvider/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -80,9 +80,9 @@ export class DataProviderService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getDataProvider(id) : Observable<DataProvider> {
-		const uri = this.apiUrl + '/DataProvider/load/' + id;
+		const uri_ = this.apiUrl + '/DataProvider/load/' + id;
 
-		return this.http.get<DataProvider>(uri);
+		return this.http.get<DataProvider>(uri_);
 	}
 	
 	//********************************************************************
@@ -92,10 +92,10 @@ export class DataProviderService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getDataProviders() : Observable<DataProvider[]> {
-		const uri = this.apiUrl + '/DataProvider/';
+		const uri_ = this.apiUrl + '/DataProvider/';
 
 		return this
-			.http.get<DataProvider[]>(uri);
+			.http.get<DataProvider[]>(uri_);
 	}
 	
 		
@@ -163,9 +163,9 @@ export class DataProviderService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/DataProvider/update/' + this.dataProvider;
+		const uri_ = this.apiUrl + '/DataProvider/update/' + this.dataProvider;
 
-	return  this.http.post(uri, this.dataProvider );
+	return  this.http.post(uri_, this.dataProvider );
 }
 
 	//********************************************************************

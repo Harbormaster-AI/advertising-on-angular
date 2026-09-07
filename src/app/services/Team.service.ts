@@ -37,7 +37,7 @@ export class TeamService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addTeam(name, Agency, Users, AdAccounts) : Observable<any> {
-		const uri = this.apiUrl + '/Team/create';
+		const uri_ = this.apiUrl + '/Team/create';
 		const obj = {
 			      		name: name,
       		Agency: Agency != null && Agency.length > 0 ? Agency : null,
@@ -45,7 +45,7 @@ export class TeamService extends HelperBaseService {
 			AdAccounts: AdAccounts != null && AdAccounts.length > 0 ? AdAccounts : null
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -54,14 +54,14 @@ export class TeamService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateTeam(name, Agency, Users, AdAccounts, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/Team/update/' + id;
+			const uri_ = this.apiUrl + '/Team/update/' + id;
 		const obj = {
 				      		name: name,
       		Agency: Agency != null && Agency.length > 0 ? Agency : null,
       		Users: Users != null && Users.length > 0 ? Users : null,
 			AdAccounts: AdAccounts != null && AdAccounts.length > 0 ? AdAccounts : null
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -70,9 +70,9 @@ export class TeamService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteTeam(id)  : Observable<any> {
-		const uri = this.apiUrl + '/Team/delete/' + id;
+		const uri_ = this.apiUrl + '/Team/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -82,9 +82,9 @@ export class TeamService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getTeam(id) : Observable<Team> {
-		const uri = this.apiUrl + '/Team/load/' + id;
+		const uri_ = this.apiUrl + '/Team/load/' + id;
 
-		return this.http.get<Team>(uri);
+		return this.http.get<Team>(uri_);
 	}
 	
 	//********************************************************************
@@ -94,10 +94,10 @@ export class TeamService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getTeams() : Observable<Team[]> {
-		const uri = this.apiUrl + '/Team/';
+		const uri_ = this.apiUrl + '/Team/';
 
 		return this
-			.http.get<Team[]>(uri);
+			.http.get<Team[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -260,9 +260,9 @@ export class TeamService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/Team/update/' + this.team;
+		const uri_ = this.apiUrl + '/Team/update/' + this.team;
 
-	return  this.http.post(uri, this.team );
+	return  this.http.post(uri_, this.team );
 }
 
 	//********************************************************************

@@ -37,7 +37,7 @@ export class AdSlotService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	addAdSlot(slotCode, width, height, floorPrice, InventorySource, Placements, Rates, Format) : Observable<any> {
-		const uri = this.apiUrl + '/AdSlot/create';
+		const uri_ = this.apiUrl + '/AdSlot/create';
 		const obj = {
 			      		slotCode: slotCode,
       		width: width,
@@ -49,7 +49,7 @@ export class AdSlotService extends HelperBaseService {
 			Format: Format
 		};
 
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -58,7 +58,7 @@ export class AdSlotService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 		updateAdSlot(slotCode, width, height, floorPrice, InventorySource, Placements, Rates, Format, id)  :  Observable<any>  {
-			const uri = this.apiUrl + '/AdSlot/update/' + id;
+			const uri_ = this.apiUrl + '/AdSlot/update/' + id;
 		const obj = {
 				      		slotCode: slotCode,
       		width: width,
@@ -69,7 +69,7 @@ export class AdSlotService extends HelperBaseService {
       		Rates: Rates != null && Rates.length > 0 ? Rates : null,
 			Format: Format
 		};
-		return this.http.post(uri, obj);
+		return this.http.post(uri_, obj);
 	}
 
 	//********************************************************************
@@ -78,9 +78,9 @@ export class AdSlotService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	deleteAdSlot(id)  : Observable<any> {
-		const uri = this.apiUrl + '/AdSlot/delete/' + id;
+		const uri_ = this.apiUrl + '/AdSlot/delete/' + id;
 
-		return this.http.get(uri);
+		return this.http.get(uri_);
 	}
 	
 	//********************************************************************
@@ -90,9 +90,9 @@ export class AdSlotService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getAdSlot(id) : Observable<AdSlot> {
-		const uri = this.apiUrl + '/AdSlot/load/' + id;
+		const uri_ = this.apiUrl + '/AdSlot/load/' + id;
 
-		return this.http.get<AdSlot>(uri);
+		return this.http.get<AdSlot>(uri_);
 	}
 	
 	//********************************************************************
@@ -102,10 +102,10 @@ export class AdSlotService extends HelperBaseService {
 	// delegates via URI
 	//********************************************************************
 	getAdSlots() : Observable<AdSlot[]> {
-		const uri = this.apiUrl + '/AdSlot/';
+		const uri_ = this.apiUrl + '/AdSlot/';
 
 		return this
-			.http.get<AdSlot[]>(uri);
+			.http.get<AdSlot[]>(uri_);
 	}
 	
 			//********************************************************************
@@ -268,9 +268,9 @@ export class AdSlotService extends HelperBaseService {
 	//********************************************************************
 	saveHelper() : Observable<any> {
 
-		const uri = this.apiUrl + '/AdSlot/update/' + this.adSlot;
+		const uri_ = this.apiUrl + '/AdSlot/update/' + this.adSlot;
 
-	return  this.http.post(uri, this.adSlot );
+	return  this.http.post(uri_, this.adSlot );
 }
 
 	//********************************************************************
