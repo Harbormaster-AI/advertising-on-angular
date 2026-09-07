@@ -2,15 +2,15 @@
 // Define collection and schema for CreativeVariation
 export interface CreativeVariation {
     name:
-	type : String
+	type : string
     language:
-	type : String
+	type : string
     headline:
-	type : String
+	type : string
     bodyText:
-	type : String
+	type : string
     callToAction:
-	type : String
+	type : string
     CreativeAsset:
 	type : Schema.Types.ObjectId
 #

@@ -88,7 +88,7 @@ export class AdvertiserService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a Advertiser
+	// loads a Advertiser
 	// returns the results untouched as an Observable Advertiser
 	// Advertiser model
 	// delegates via URI
@@ -123,7 +123,7 @@ export class AdvertiserService extends HelperBaseService {
 		this.loadHelper( advertiserId );
 
 	// get the Agency from storage
-	var tmp 	= new AgencyService(this.http).editAgency(_agencyId);
+	var tmp 	= new AgencyService(this.http).getAgency(_agencyId);
 
 	// assign the Agency
 	this.advertiser.agency = tmp;
@@ -167,7 +167,7 @@ export class AdvertiserService extends HelperBaseService {
 	// iterate over array of adAccounts ids
 	idList.forEach(function (id) {
 		// read the AdAccount
-		var adAccount = new AdAccountService(this.http).editAdAccount(id);
+		var adAccount = new AdAccountService(this.http).getAdAccount(id);
 		// add the AdAccount if not already assigned
 		if ( this.advertiser.adAccounts.indexOf(adAccount) == -1 )
 		this.advertiser.adAccounts.push(adAccount);
@@ -225,7 +225,7 @@ export class AdvertiserService extends HelperBaseService {
 	// iterate over array of billingProfiles ids
 	idList.forEach(function (id) {
 		// read the BillingProfile
-		var billingProfile = new BillingProfileService(this.http).editBillingProfile(id);
+		var billingProfile = new BillingProfileService(this.http).getBillingProfile(id);
 		// add the BillingProfile if not already assigned
 		if ( this.advertiser.billingProfiles.indexOf(billingProfile) == -1 )
 		this.advertiser.billingProfiles.push(billingProfile);
@@ -283,7 +283,7 @@ export class AdvertiserService extends HelperBaseService {
 	// iterate over array of campaigns ids
 	idList.forEach(function (id) {
 		// read the Campaign
-		var campaign = new CampaignService(this.http).editCampaign(id);
+		var campaign = new CampaignService(this.http).getCampaign(id);
 		// add the Campaign if not already assigned
 		if ( this.advertiser.campaigns.indexOf(campaign) == -1 )
 		this.advertiser.campaigns.push(campaign);
@@ -341,7 +341,7 @@ export class AdvertiserService extends HelperBaseService {
 	// iterate over array of trackingPixels ids
 	idList.forEach(function (id) {
 		// read the TrackingPixel
-		var trackingPixel = new TrackingPixelService(this.http).editTrackingPixel(id);
+		var trackingPixel = new TrackingPixelService(this.http).getTrackingPixel(id);
 		// add the TrackingPixel if not already assigned
 		if ( this.advertiser.trackingPixels.indexOf(trackingPixel) == -1 )
 		this.advertiser.trackingPixels.push(trackingPixel);
@@ -397,7 +397,7 @@ export class AdvertiserService extends HelperBaseService {
 	// loadHelper - internal helper to load a Advertiser
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editAdvertiser(id)
+		this.getAdvertiser(id)
 			.subscribe((res : Advertiser) => {
 				this.advertiser = res;
 			});

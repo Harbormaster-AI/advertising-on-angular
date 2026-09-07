@@ -2,11 +2,11 @@
 // Define collection and schema for RateCard
 export interface RateCard {
     name:
-	type : String
+	type : string
     effectiveDate:
 	type : Date
     currency:
-	type : String
+	type : string
     Publisher:
 	type : Schema.Types.ObjectId
     Rates:

@@ -2,11 +2,11 @@
 // Define collection and schema for AudienceSegment
 export interface AudienceSegment {
     name:
-	type : String
+	type : string
     estimatedReach:
-	type : Number
+	type : number
     description:
-	type : String
+	type : string
     Provider:
 	type : Schema.Types.ObjectId
     Campaigns:

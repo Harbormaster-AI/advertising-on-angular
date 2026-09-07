@@ -78,7 +78,7 @@ export class ExperimentVariantService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a ExperimentVariant
+	// loads a ExperimentVariant
 	// returns the results untouched as an Observable ExperimentVariant
 	// ExperimentVariant model
 	// delegates via URI
@@ -113,7 +113,7 @@ export class ExperimentVariantService extends HelperBaseService {
 		this.loadHelper( experimentVariantId );
 
 	// get the Experiment from storage
-	var tmp 	= new ExperimentService(this.http).editExperiment(_experimentId);
+	var tmp 	= new ExperimentService(this.http).getExperiment(_experimentId);
 
 	// assign the Experiment
 	this.experimentVariant.experiment = tmp;
@@ -150,7 +150,7 @@ export class ExperimentVariantService extends HelperBaseService {
 		this.loadHelper( experimentVariantId );
 
 	// get the CreativeVariation from storage
-	var tmp 	= new CreativeVariationService(this.http).editCreativeVariation(_creativeVariationId);
+	var tmp 	= new CreativeVariationService(this.http).getCreativeVariation(_creativeVariationId);
 
 	// assign the CreativeVariation
 	this.experimentVariant.creativeVariation = tmp;
@@ -187,7 +187,7 @@ export class ExperimentVariantService extends HelperBaseService {
 		this.loadHelper( experimentVariantId );
 
 	// get the LineItem from storage
-	var tmp 	= new LineItemService(this.http).editLineItem(_lineItemId);
+	var tmp 	= new LineItemService(this.http).getLineItem(_lineItemId);
 
 	// assign the LineItem
 	this.experimentVariant.lineItem = tmp;
@@ -229,7 +229,7 @@ export class ExperimentVariantService extends HelperBaseService {
 	// loadHelper - internal helper to load a ExperimentVariant
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editExperimentVariant(id)
+		this.getExperimentVariant(id)
 			.subscribe((res : ExperimentVariant) => {
 				this.experimentVariant = res;
 			});

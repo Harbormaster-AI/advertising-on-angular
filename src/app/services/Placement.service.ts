@@ -80,7 +80,7 @@ export class PlacementService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a Placement
+	// loads a Placement
 	// returns the results untouched as an Observable Placement
 	// Placement model
 	// delegates via URI
@@ -115,7 +115,7 @@ export class PlacementService extends HelperBaseService {
 		this.loadHelper( placementId );
 
 	// get the LineItem from storage
-	var tmp 	= new LineItemService(this.http).editLineItem(_lineItemId);
+	var tmp 	= new LineItemService(this.http).getLineItem(_lineItemId);
 
 	// assign the LineItem
 	this.placement.lineItem = tmp;
@@ -152,7 +152,7 @@ export class PlacementService extends HelperBaseService {
 		this.loadHelper( placementId );
 
 	// get the AdSlot from storage
-	var tmp 	= new AdSlotService(this.http).editAdSlot(_adSlotId);
+	var tmp 	= new AdSlotService(this.http).getAdSlot(_adSlotId);
 
 	// assign the AdSlot
 	this.placement.adSlot = tmp;
@@ -189,7 +189,7 @@ export class PlacementService extends HelperBaseService {
 		this.loadHelper( placementId );
 
 	// get the Deal from storage
-	var tmp 	= new DealService(this.http).editDeal(_dealId);
+	var tmp 	= new DealService(this.http).getDeal(_dealId);
 
 	// assign the Deal
 	this.placement.deal = tmp;
@@ -231,7 +231,7 @@ export class PlacementService extends HelperBaseService {
 	// loadHelper - internal helper to load a Placement
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editPlacement(id)
+		this.getPlacement(id)
 			.subscribe((res : Placement) => {
 				this.placement = res;
 			});

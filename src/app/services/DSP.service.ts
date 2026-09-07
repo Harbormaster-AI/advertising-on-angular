@@ -74,7 +74,7 @@ export class DSPService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a DSP
+	// loads a DSP
 	// returns the results untouched as an Observable DSP
 	// DSP model
 	// delegates via URI
@@ -116,7 +116,7 @@ export class DSPService extends HelperBaseService {
 	// iterate over array of adAccounts ids
 	idList.forEach(function (id) {
 		// read the AdAccount
-		var adAccount = new AdAccountService(this.http).editAdAccount(id);
+		var adAccount = new AdAccountService(this.http).getAdAccount(id);
 		// add the AdAccount if not already assigned
 		if ( this.dSP.adAccounts.indexOf(adAccount) == -1 )
 		this.dSP.adAccounts.push(adAccount);
@@ -172,7 +172,7 @@ export class DSPService extends HelperBaseService {
 	// loadHelper - internal helper to load a DSP
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editDSP(id)
+		this.getDSP(id)
 			.subscribe((res : DSP) => {
 				this.dSP = res;
 			});

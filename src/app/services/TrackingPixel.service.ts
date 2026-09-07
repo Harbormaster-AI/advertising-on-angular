@@ -82,7 +82,7 @@ export class TrackingPixelService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a TrackingPixel
+	// loads a TrackingPixel
 	// returns the results untouched as an Observable TrackingPixel
 	// TrackingPixel model
 	// delegates via URI
@@ -117,7 +117,7 @@ export class TrackingPixelService extends HelperBaseService {
 		this.loadHelper( trackingPixelId );
 
 	// get the Campaign from storage
-	var tmp 	= new CampaignService(this.http).editCampaign(_campaignId);
+	var tmp 	= new CampaignService(this.http).getCampaign(_campaignId);
 
 	// assign the Campaign
 	this.trackingPixel.campaign = tmp;
@@ -154,7 +154,7 @@ export class TrackingPixelService extends HelperBaseService {
 		this.loadHelper( trackingPixelId );
 
 	// get the Advertiser from storage
-	var tmp 	= new AdvertiserService(this.http).editAdvertiser(_advertiserId);
+	var tmp 	= new AdvertiserService(this.http).getAdvertiser(_advertiserId);
 
 	// assign the Advertiser
 	this.trackingPixel.advertiser = tmp;
@@ -198,7 +198,7 @@ export class TrackingPixelService extends HelperBaseService {
 	// iterate over array of conversionEvents ids
 	idList.forEach(function (id) {
 		// read the ConversionEvent
-		var conversionEvent = new ConversionEventService(this.http).editConversionEvent(id);
+		var conversionEvent = new ConversionEventService(this.http).getConversionEvent(id);
 		// add the ConversionEvent if not already assigned
 		if ( this.trackingPixel.conversionEvents.indexOf(conversionEvent) == -1 )
 		this.trackingPixel.conversionEvents.push(conversionEvent);
@@ -254,7 +254,7 @@ export class TrackingPixelService extends HelperBaseService {
 	// loadHelper - internal helper to load a TrackingPixel
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editTrackingPixel(id)
+		this.getTrackingPixel(id)
 			.subscribe((res : TrackingPixel) => {
 				this.trackingPixel = res;
 			});

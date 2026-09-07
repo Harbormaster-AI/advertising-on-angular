@@ -76,7 +76,7 @@ export class PaymentMethodService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a PaymentMethod
+	// loads a PaymentMethod
 	// returns the results untouched as an Observable PaymentMethod
 	// PaymentMethod model
 	// delegates via URI
@@ -111,7 +111,7 @@ export class PaymentMethodService extends HelperBaseService {
 		this.loadHelper( paymentMethodId );
 
 	// get the BillingProfile from storage
-	var tmp 	= new BillingProfileService(this.http).editBillingProfile(_billingProfileId);
+	var tmp 	= new BillingProfileService(this.http).getBillingProfile(_billingProfileId);
 
 	// assign the BillingProfile
 	this.paymentMethod.billingProfile = tmp;
@@ -153,7 +153,7 @@ export class PaymentMethodService extends HelperBaseService {
 	// loadHelper - internal helper to load a PaymentMethod
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editPaymentMethod(id)
+		this.getPaymentMethod(id)
 			.subscribe((res : PaymentMethod) => {
 				this.paymentMethod = res;
 			});

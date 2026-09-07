@@ -82,7 +82,7 @@ export class UserService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a User
+	// loads a User
 	// returns the results untouched as an Observable User
 	// User model
 	// delegates via URI
@@ -117,7 +117,7 @@ export class UserService extends HelperBaseService {
 		this.loadHelper( userId );
 
 	// get the Agency from storage
-	var tmp 	= new AgencyService(this.http).editAgency(_agencyId);
+	var tmp 	= new AgencyService(this.http).getAgency(_agencyId);
 
 	// assign the Agency
 	this.user.agency = tmp;
@@ -161,7 +161,7 @@ export class UserService extends HelperBaseService {
 	// iterate over array of teams ids
 	idList.forEach(function (id) {
 		// read the Team
-		var team = new TeamService(this.http).editTeam(id);
+		var team = new TeamService(this.http).getTeam(id);
 		// add the Team if not already assigned
 		if ( this.user.teams.indexOf(team) == -1 )
 		this.user.teams.push(team);
@@ -219,7 +219,7 @@ export class UserService extends HelperBaseService {
 	// iterate over array of adAccounts ids
 	idList.forEach(function (id) {
 		// read the AdAccount
-		var adAccount = new AdAccountService(this.http).editAdAccount(id);
+		var adAccount = new AdAccountService(this.http).getAdAccount(id);
 		// add the AdAccount if not already assigned
 		if ( this.user.adAccounts.indexOf(adAccount) == -1 )
 		this.user.adAccounts.push(adAccount);
@@ -275,7 +275,7 @@ export class UserService extends HelperBaseService {
 	// loadHelper - internal helper to load a User
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editUser(id)
+		this.getUser(id)
 			.subscribe((res : User) => {
 				this.user = res;
 			});

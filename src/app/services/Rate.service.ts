@@ -77,7 +77,7 @@ export class RateService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a Rate
+	// loads a Rate
 	// returns the results untouched as an Observable Rate
 	// Rate model
 	// delegates via URI
@@ -112,7 +112,7 @@ export class RateService extends HelperBaseService {
 		this.loadHelper( rateId );
 
 	// get the RateCard from storage
-	var tmp 	= new RateCardService(this.http).editRateCard(_rateCardId);
+	var tmp 	= new RateCardService(this.http).getRateCard(_rateCardId);
 
 	// assign the RateCard
 	this.rate.rateCard = tmp;
@@ -149,7 +149,7 @@ export class RateService extends HelperBaseService {
 		this.loadHelper( rateId );
 
 	// get the AdSlot from storage
-	var tmp 	= new AdSlotService(this.http).editAdSlot(_adSlotId);
+	var tmp 	= new AdSlotService(this.http).getAdSlot(_adSlotId);
 
 	// assign the AdSlot
 	this.rate.adSlot = tmp;
@@ -191,7 +191,7 @@ export class RateService extends HelperBaseService {
 	// loadHelper - internal helper to load a Rate
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editRate(id)
+		this.getRate(id)
 			.subscribe((res : Rate) => {
 				this.rate = res;
 			});

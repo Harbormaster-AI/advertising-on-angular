@@ -82,7 +82,7 @@ export class ReportService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a Report
+	// loads a Report
 	// returns the results untouched as an Observable Report
 	// Report model
 	// delegates via URI
@@ -117,7 +117,7 @@ export class ReportService extends HelperBaseService {
 		this.loadHelper( reportId );
 
 	// get the AdAccount from storage
-	var tmp 	= new AdAccountService(this.http).editAdAccount(_adAccountId);
+	var tmp 	= new AdAccountService(this.http).getAdAccount(_adAccountId);
 
 	// assign the AdAccount
 	this.report.adAccount = tmp;
@@ -154,7 +154,7 @@ export class ReportService extends HelperBaseService {
 		this.loadHelper( reportId );
 
 	// get the Campaign from storage
-	var tmp 	= new CampaignService(this.http).editCampaign(_campaignId);
+	var tmp 	= new CampaignService(this.http).getCampaign(_campaignId);
 
 	// assign the Campaign
 	this.report.campaign = tmp;
@@ -191,7 +191,7 @@ export class ReportService extends HelperBaseService {
 		this.loadHelper( reportId );
 
 	// get the LineItem from storage
-	var tmp 	= new LineItemService(this.http).editLineItem(_lineItemId);
+	var tmp 	= new LineItemService(this.http).getLineItem(_lineItemId);
 
 	// assign the LineItem
 	this.report.lineItem = tmp;
@@ -233,7 +233,7 @@ export class ReportService extends HelperBaseService {
 	// loadHelper - internal helper to load a Report
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editReport(id)
+		this.getReport(id)
 			.subscribe((res : Report) => {
 				this.report = res;
 			});

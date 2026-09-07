@@ -2,7 +2,7 @@
 // Define collection and schema for Campaign
 export interface Campaign {
     name:
-	type : String
+	type : string
     totalBudget:
 	type : Money
     flight:

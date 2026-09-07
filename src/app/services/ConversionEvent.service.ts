@@ -82,7 +82,7 @@ export class ConversionEventService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a ConversionEvent
+	// loads a ConversionEvent
 	// returns the results untouched as an Observable ConversionEvent
 	// ConversionEvent model
 	// delegates via URI
@@ -117,7 +117,7 @@ export class ConversionEventService extends HelperBaseService {
 		this.loadHelper( conversionEventId );
 
 	// get the Campaign from storage
-	var tmp 	= new CampaignService(this.http).editCampaign(_campaignId);
+	var tmp 	= new CampaignService(this.http).getCampaign(_campaignId);
 
 	// assign the Campaign
 	this.conversionEvent.campaign = tmp;
@@ -154,7 +154,7 @@ export class ConversionEventService extends HelperBaseService {
 		this.loadHelper( conversionEventId );
 
 	// get the LineItem from storage
-	var tmp 	= new LineItemService(this.http).editLineItem(_lineItemId);
+	var tmp 	= new LineItemService(this.http).getLineItem(_lineItemId);
 
 	// assign the LineItem
 	this.conversionEvent.lineItem = tmp;
@@ -191,7 +191,7 @@ export class ConversionEventService extends HelperBaseService {
 		this.loadHelper( conversionEventId );
 
 	// get the TrackingPixel from storage
-	var tmp 	= new TrackingPixelService(this.http).editTrackingPixel(_trackingPixelId);
+	var tmp 	= new TrackingPixelService(this.http).getTrackingPixel(_trackingPixelId);
 
 	// assign the TrackingPixel
 	this.conversionEvent.trackingPixel = tmp;
@@ -233,7 +233,7 @@ export class ConversionEventService extends HelperBaseService {
 	// loadHelper - internal helper to load a ConversionEvent
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editConversionEvent(id)
+		this.getConversionEvent(id)
 			.subscribe((res : ConversionEvent) => {
 				this.conversionEvent = res;
 			});

@@ -91,7 +91,7 @@ export class AdAccountService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a AdAccount
+	// loads a AdAccount
 	// returns the results untouched as an Observable AdAccount
 	// AdAccount model
 	// delegates via URI
@@ -126,7 +126,7 @@ export class AdAccountService extends HelperBaseService {
 		this.loadHelper( adAccountId );
 
 	// get the Advertiser from storage
-	var tmp 	= new AdvertiserService(this.http).editAdvertiser(_advertiserId);
+	var tmp 	= new AdvertiserService(this.http).getAdvertiser(_advertiserId);
 
 	// assign the Advertiser
 	this.adAccount.advertiser = tmp;
@@ -163,7 +163,7 @@ export class AdAccountService extends HelperBaseService {
 		this.loadHelper( adAccountId );
 
 	// get the BillingProfile from storage
-	var tmp 	= new BillingProfileService(this.http).editBillingProfile(_billingProfileId);
+	var tmp 	= new BillingProfileService(this.http).getBillingProfile(_billingProfileId);
 
 	// assign the BillingProfile
 	this.adAccount.billingProfile = tmp;
@@ -200,7 +200,7 @@ export class AdAccountService extends HelperBaseService {
 		this.loadHelper( adAccountId );
 
 	// get the DSP from storage
-	var tmp 	= new DSPService(this.http).editDSP(_dspId);
+	var tmp 	= new DSPService(this.http).getDSP(_dspId);
 
 	// assign the Dsp
 	this.adAccount.dsp = tmp;
@@ -244,7 +244,7 @@ export class AdAccountService extends HelperBaseService {
 	// iterate over array of users ids
 	idList.forEach(function (id) {
 		// read the User
-		var user = new UserService(this.http).editUser(id);
+		var user = new UserService(this.http).getUser(id);
 		// add the User if not already assigned
 		if ( this.adAccount.users.indexOf(user) == -1 )
 		this.adAccount.users.push(user);
@@ -302,7 +302,7 @@ export class AdAccountService extends HelperBaseService {
 	// iterate over array of campaigns ids
 	idList.forEach(function (id) {
 		// read the Campaign
-		var campaign = new CampaignService(this.http).editCampaign(id);
+		var campaign = new CampaignService(this.http).getCampaign(id);
 		// add the Campaign if not already assigned
 		if ( this.adAccount.campaigns.indexOf(campaign) == -1 )
 		this.adAccount.campaigns.push(campaign);
@@ -360,7 +360,7 @@ export class AdAccountService extends HelperBaseService {
 	// iterate over array of performanceMetrics ids
 	idList.forEach(function (id) {
 		// read the PerformanceMetric
-		var performanceMetric = new PerformanceMetricService(this.http).editPerformanceMetric(id);
+		var performanceMetric = new PerformanceMetricService(this.http).getPerformanceMetric(id);
 		// add the PerformanceMetric if not already assigned
 		if ( this.adAccount.performanceMetrics.indexOf(performanceMetric) == -1 )
 		this.adAccount.performanceMetrics.push(performanceMetric);
@@ -416,7 +416,7 @@ export class AdAccountService extends HelperBaseService {
 	// loadHelper - internal helper to load a AdAccount
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editAdAccount(id)
+		this.getAdAccount(id)
 			.subscribe((res : AdAccount) => {
 				this.adAccount = res;
 			});

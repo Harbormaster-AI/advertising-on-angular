@@ -75,7 +75,7 @@ export class GeoRegionService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a GeoRegion
+	// loads a GeoRegion
 	// returns the results untouched as an Observable GeoRegion
 	// GeoRegion model
 	// delegates via URI
@@ -110,7 +110,7 @@ export class GeoRegionService extends HelperBaseService {
 		this.loadHelper( geoRegionId );
 
 	// get the GeoRegion from storage
-	var tmp 	= new GeoRegionService(this.http).editGeoRegion(_parentId);
+	var tmp 	= new GeoRegionService(this.http).getGeoRegion(_parentId);
 
 	// assign the Parent
 	this.geoRegion.parent = tmp;
@@ -154,7 +154,7 @@ export class GeoRegionService extends HelperBaseService {
 	// iterate over array of children ids
 	idList.forEach(function (id) {
 		// read the GeoRegion
-		var geoRegion = new GeoRegionService(this.http).editGeoRegion(id);
+		var geoRegion = new GeoRegionService(this.http).getGeoRegion(id);
 		// add the GeoRegion if not already assigned
 		if ( this.geoRegion.children.indexOf(geoRegion) == -1 )
 		this.geoRegion.children.push(geoRegion);
@@ -210,7 +210,7 @@ export class GeoRegionService extends HelperBaseService {
 	// loadHelper - internal helper to load a GeoRegion
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editGeoRegion(id)
+		this.getGeoRegion(id)
 			.subscribe((res : GeoRegion) => {
 				this.geoRegion = res;
 			});

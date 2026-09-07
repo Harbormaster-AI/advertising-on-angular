@@ -2,7 +2,7 @@
 // Define collection and schema for TrackingPixel
 export interface TrackingPixel {
     name:
-	type : String
+	type : string
     url:
 	type : URL
     Campaign:

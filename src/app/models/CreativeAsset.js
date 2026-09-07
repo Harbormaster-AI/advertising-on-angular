@@ -2,17 +2,17 @@
 // Define collection and schema for CreativeAsset
 export interface CreativeAsset {
     name:
-	type : String
+	type : string
     clickUrl:
 	type : URL
     landingPage:
 	type : URL
     width:
-	type : Number
+	type : number
     height:
-	type : Number
+	type : number
     durationSeconds:
-	type : Number
+	type : number
     Files:
  	type : [{ type: Schema.Types.ObjectId, ref: 'CreativeFile' }]
     Approvals:

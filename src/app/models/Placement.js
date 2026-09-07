@@ -2,11 +2,11 @@
 // Define collection and schema for Placement
 export interface Placement {
     name:
-	type : String
+	type : string
     flight:
 	type : DateRange
     goalImpressions:
-	type : Number
+	type : number
     LineItem:
 	type : Schema.Types.ObjectId
     AdSlot:

@@ -82,7 +82,7 @@ export class TargetingProfileService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a TargetingProfile
+	// loads a TargetingProfile
 	// returns the results untouched as an Observable TargetingProfile
 	// TargetingProfile model
 	// delegates via URI
@@ -117,7 +117,7 @@ export class TargetingProfileService extends HelperBaseService {
 		this.loadHelper( targetingProfileId );
 
 	// get the BrandSafetyPolicy from storage
-	var tmp 	= new BrandSafetyPolicyService(this.http).editBrandSafetyPolicy(_brandSafetyPolicyId);
+	var tmp 	= new BrandSafetyPolicyService(this.http).getBrandSafetyPolicy(_brandSafetyPolicyId);
 
 	// assign the BrandSafetyPolicy
 	this.targetingProfile.brandSafetyPolicy = tmp;
@@ -161,7 +161,7 @@ export class TargetingProfileService extends HelperBaseService {
 	// iterate over array of audienceSegments ids
 	idList.forEach(function (id) {
 		// read the AudienceSegment
-		var audienceSegment = new AudienceSegmentService(this.http).editAudienceSegment(id);
+		var audienceSegment = new AudienceSegmentService(this.http).getAudienceSegment(id);
 		// add the AudienceSegment if not already assigned
 		if ( this.targetingProfile.audienceSegments.indexOf(audienceSegment) == -1 )
 		this.targetingProfile.audienceSegments.push(audienceSegment);
@@ -219,7 +219,7 @@ export class TargetingProfileService extends HelperBaseService {
 	// iterate over array of geoRegions ids
 	idList.forEach(function (id) {
 		// read the GeoRegion
-		var geoRegion = new GeoRegionService(this.http).editGeoRegion(id);
+		var geoRegion = new GeoRegionService(this.http).getGeoRegion(id);
 		// add the GeoRegion if not already assigned
 		if ( this.targetingProfile.geoRegions.indexOf(geoRegion) == -1 )
 		this.targetingProfile.geoRegions.push(geoRegion);
@@ -277,7 +277,7 @@ export class TargetingProfileService extends HelperBaseService {
 	// iterate over array of contentCategories ids
 	idList.forEach(function (id) {
 		// read the ContentCategory
-		var contentCategory = new ContentCategoryService(this.http).editContentCategory(id);
+		var contentCategory = new ContentCategoryService(this.http).getContentCategory(id);
 		// add the ContentCategory if not already assigned
 		if ( this.targetingProfile.contentCategories.indexOf(contentCategory) == -1 )
 		this.targetingProfile.contentCategories.push(contentCategory);
@@ -335,7 +335,7 @@ export class TargetingProfileService extends HelperBaseService {
 	// iterate over array of deviceCriteria ids
 	idList.forEach(function (id) {
 		// read the DeviceCriterion
-		var deviceCriterion = new DeviceCriterionService(this.http).editDeviceCriterion(id);
+		var deviceCriterion = new DeviceCriterionService(this.http).getDeviceCriterion(id);
 		// add the DeviceCriterion if not already assigned
 		if ( this.targetingProfile.deviceCriteria.indexOf(deviceCriterion) == -1 )
 		this.targetingProfile.deviceCriteria.push(deviceCriterion);
@@ -391,7 +391,7 @@ export class TargetingProfileService extends HelperBaseService {
 	// loadHelper - internal helper to load a TargetingProfile
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editTargetingProfile(id)
+		this.getTargetingProfile(id)
 			.subscribe((res : TargetingProfile) => {
 				this.targetingProfile = res;
 			});

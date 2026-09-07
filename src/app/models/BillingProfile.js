@@ -2,9 +2,9 @@
 // Define collection and schema for BillingProfile
 export interface BillingProfile {
     billingName:
-	type : String
+	type : string
     taxId:
-	type : String
+	type : string
     billingAddress:
 	type : Address
     Advertiser:

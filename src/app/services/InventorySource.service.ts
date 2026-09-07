@@ -82,7 +82,7 @@ export class InventorySourceService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a InventorySource
+	// loads a InventorySource
 	// returns the results untouched as an Observable InventorySource
 	// InventorySource model
 	// delegates via URI
@@ -117,7 +117,7 @@ export class InventorySourceService extends HelperBaseService {
 		this.loadHelper( inventorySourceId );
 
 	// get the Publisher from storage
-	var tmp 	= new PublisherService(this.http).editPublisher(_publisherId);
+	var tmp 	= new PublisherService(this.http).getPublisher(_publisherId);
 
 	// assign the Publisher
 	this.inventorySource.publisher = tmp;
@@ -161,7 +161,7 @@ export class InventorySourceService extends HelperBaseService {
 	// iterate over array of adSlots ids
 	idList.forEach(function (id) {
 		// read the AdSlot
-		var adSlot = new AdSlotService(this.http).editAdSlot(id);
+		var adSlot = new AdSlotService(this.http).getAdSlot(id);
 		// add the AdSlot if not already assigned
 		if ( this.inventorySource.adSlots.indexOf(adSlot) == -1 )
 		this.inventorySource.adSlots.push(adSlot);
@@ -219,7 +219,7 @@ export class InventorySourceService extends HelperBaseService {
 	// iterate over array of deals ids
 	idList.forEach(function (id) {
 		// read the Deal
-		var deal = new DealService(this.http).editDeal(id);
+		var deal = new DealService(this.http).getDeal(id);
 		// add the Deal if not already assigned
 		if ( this.inventorySource.deals.indexOf(deal) == -1 )
 		this.inventorySource.deals.push(deal);
@@ -275,7 +275,7 @@ export class InventorySourceService extends HelperBaseService {
 	// loadHelper - internal helper to load a InventorySource
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editInventorySource(id)
+		this.getInventorySource(id)
 			.subscribe((res : InventorySource) => {
 				this.inventorySource = res;
 			});

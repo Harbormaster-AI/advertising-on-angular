@@ -2,9 +2,9 @@
 // Define collection and schema for Experiment
 export interface Experiment {
     name:
-	type : String
+	type : string
     hypothesis:
-	type : String
+	type : string
     startDate:
 	type : Date
     endDate:

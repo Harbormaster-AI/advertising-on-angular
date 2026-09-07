@@ -96,7 +96,7 @@ export class CampaignService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a Campaign
+	// loads a Campaign
 	// returns the results untouched as an Observable Campaign
 	// Campaign model
 	// delegates via URI
@@ -131,7 +131,7 @@ export class CampaignService extends HelperBaseService {
 		this.loadHelper( campaignId );
 
 	// get the AdAccount from storage
-	var tmp 	= new AdAccountService(this.http).editAdAccount(_adAccountId);
+	var tmp 	= new AdAccountService(this.http).getAdAccount(_adAccountId);
 
 	// assign the AdAccount
 	this.campaign.adAccount = tmp;
@@ -168,7 +168,7 @@ export class CampaignService extends HelperBaseService {
 		this.loadHelper( campaignId );
 
 	// get the InsertionOrder from storage
-	var tmp 	= new InsertionOrderService(this.http).editInsertionOrder(_insertionOrderId);
+	var tmp 	= new InsertionOrderService(this.http).getInsertionOrder(_insertionOrderId);
 
 	// assign the InsertionOrder
 	this.campaign.insertionOrder = tmp;
@@ -212,7 +212,7 @@ export class CampaignService extends HelperBaseService {
 	// iterate over array of lineItems ids
 	idList.forEach(function (id) {
 		// read the LineItem
-		var lineItem = new LineItemService(this.http).editLineItem(id);
+		var lineItem = new LineItemService(this.http).getLineItem(id);
 		// add the LineItem if not already assigned
 		if ( this.campaign.lineItems.indexOf(lineItem) == -1 )
 		this.campaign.lineItems.push(lineItem);
@@ -270,7 +270,7 @@ export class CampaignService extends HelperBaseService {
 	// iterate over array of kpis ids
 	idList.forEach(function (id) {
 		// read the KPI
-		var kPI = new KPIService(this.http).editKPI(id);
+		var kPI = new KPIService(this.http).getKPI(id);
 		// add the KPI if not already assigned
 		if ( this.campaign.kpis.indexOf(kPI) == -1 )
 		this.campaign.kpis.push(kPI);
@@ -328,7 +328,7 @@ export class CampaignService extends HelperBaseService {
 	// iterate over array of trackingPixels ids
 	idList.forEach(function (id) {
 		// read the TrackingPixel
-		var trackingPixel = new TrackingPixelService(this.http).editTrackingPixel(id);
+		var trackingPixel = new TrackingPixelService(this.http).getTrackingPixel(id);
 		// add the TrackingPixel if not already assigned
 		if ( this.campaign.trackingPixels.indexOf(trackingPixel) == -1 )
 		this.campaign.trackingPixels.push(trackingPixel);
@@ -386,7 +386,7 @@ export class CampaignService extends HelperBaseService {
 	// iterate over array of audiences ids
 	idList.forEach(function (id) {
 		// read the AudienceSegment
-		var audienceSegment = new AudienceSegmentService(this.http).editAudienceSegment(id);
+		var audienceSegment = new AudienceSegmentService(this.http).getAudienceSegment(id);
 		// add the AudienceSegment if not already assigned
 		if ( this.campaign.audiences.indexOf(audienceSegment) == -1 )
 		this.campaign.audiences.push(audienceSegment);
@@ -444,7 +444,7 @@ export class CampaignService extends HelperBaseService {
 	// iterate over array of reports ids
 	idList.forEach(function (id) {
 		// read the Report
-		var report = new ReportService(this.http).editReport(id);
+		var report = new ReportService(this.http).getReport(id);
 		// add the Report if not already assigned
 		if ( this.campaign.reports.indexOf(report) == -1 )
 		this.campaign.reports.push(report);
@@ -500,7 +500,7 @@ export class CampaignService extends HelperBaseService {
 	// loadHelper - internal helper to load a Campaign
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editCampaign(id)
+		this.getCampaign(id)
 			.subscribe((res : Campaign) => {
 				this.campaign = res;
 			});

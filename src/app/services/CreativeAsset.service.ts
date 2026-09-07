@@ -93,7 +93,7 @@ export class CreativeAssetService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a CreativeAsset
+	// loads a CreativeAsset
 	// returns the results untouched as an Observable CreativeAsset
 	// CreativeAsset model
 	// delegates via URI
@@ -135,7 +135,7 @@ export class CreativeAssetService extends HelperBaseService {
 	// iterate over array of files ids
 	idList.forEach(function (id) {
 		// read the CreativeFile
-		var creativeFile = new CreativeFileService(this.http).editCreativeFile(id);
+		var creativeFile = new CreativeFileService(this.http).getCreativeFile(id);
 		// add the CreativeFile if not already assigned
 		if ( this.creativeAsset.files.indexOf(creativeFile) == -1 )
 		this.creativeAsset.files.push(creativeFile);
@@ -193,7 +193,7 @@ export class CreativeAssetService extends HelperBaseService {
 	// iterate over array of approvals ids
 	idList.forEach(function (id) {
 		// read the CreativeApproval
-		var creativeApproval = new CreativeApprovalService(this.http).editCreativeApproval(id);
+		var creativeApproval = new CreativeApprovalService(this.http).getCreativeApproval(id);
 		// add the CreativeApproval if not already assigned
 		if ( this.creativeAsset.approvals.indexOf(creativeApproval) == -1 )
 		this.creativeAsset.approvals.push(creativeApproval);
@@ -251,7 +251,7 @@ export class CreativeAssetService extends HelperBaseService {
 	// iterate over array of variations ids
 	idList.forEach(function (id) {
 		// read the CreativeVariation
-		var creativeVariation = new CreativeVariationService(this.http).editCreativeVariation(id);
+		var creativeVariation = new CreativeVariationService(this.http).getCreativeVariation(id);
 		// add the CreativeVariation if not already assigned
 		if ( this.creativeAsset.variations.indexOf(creativeVariation) == -1 )
 		this.creativeAsset.variations.push(creativeVariation);
@@ -309,7 +309,7 @@ export class CreativeAssetService extends HelperBaseService {
 	// iterate over array of lineItems ids
 	idList.forEach(function (id) {
 		// read the LineItem
-		var lineItem = new LineItemService(this.http).editLineItem(id);
+		var lineItem = new LineItemService(this.http).getLineItem(id);
 		// add the LineItem if not already assigned
 		if ( this.creativeAsset.lineItems.indexOf(lineItem) == -1 )
 		this.creativeAsset.lineItems.push(lineItem);
@@ -365,7 +365,7 @@ export class CreativeAssetService extends HelperBaseService {
 	// loadHelper - internal helper to load a CreativeAsset
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editCreativeAsset(id)
+		this.getCreativeAsset(id)
 			.subscribe((res : CreativeAsset) => {
 				this.creativeAsset = res;
 			});

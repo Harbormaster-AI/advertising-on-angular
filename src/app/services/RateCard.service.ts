@@ -77,7 +77,7 @@ export class RateCardService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a RateCard
+	// loads a RateCard
 	// returns the results untouched as an Observable RateCard
 	// RateCard model
 	// delegates via URI
@@ -112,7 +112,7 @@ export class RateCardService extends HelperBaseService {
 		this.loadHelper( rateCardId );
 
 	// get the Publisher from storage
-	var tmp 	= new PublisherService(this.http).editPublisher(_publisherId);
+	var tmp 	= new PublisherService(this.http).getPublisher(_publisherId);
 
 	// assign the Publisher
 	this.rateCard.publisher = tmp;
@@ -156,7 +156,7 @@ export class RateCardService extends HelperBaseService {
 	// iterate over array of rates ids
 	idList.forEach(function (id) {
 		// read the Rate
-		var rate = new RateService(this.http).editRate(id);
+		var rate = new RateService(this.http).getRate(id);
 		// add the Rate if not already assigned
 		if ( this.rateCard.rates.indexOf(rate) == -1 )
 		this.rateCard.rates.push(rate);
@@ -212,7 +212,7 @@ export class RateCardService extends HelperBaseService {
 	// loadHelper - internal helper to load a RateCard
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editRateCard(id)
+		this.getRateCard(id)
 			.subscribe((res : RateCard) => {
 				this.rateCard = res;
 			});

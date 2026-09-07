@@ -2,13 +2,13 @@
 // Define collection and schema for Agency
 export interface Agency {
     name:
-	type : String
+	type : string
     legalName:
-	type : String
+	type : string
     headquartersCountry:
-	type : String
+	type : string
     website:
-	type : String
+	type : string
     Advertisers:
  	type : [{ type: Schema.Types.ObjectId, ref: 'Advertiser' }]
     Teams:

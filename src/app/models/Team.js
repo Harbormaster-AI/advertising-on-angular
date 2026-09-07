@@ -2,7 +2,7 @@
 // Define collection and schema for Team
 export interface Team {
     name:
-	type : String
+	type : string
     Agency:
 	type : Schema.Types.ObjectId
     Users:

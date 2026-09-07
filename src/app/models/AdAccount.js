@@ -2,13 +2,13 @@
 // Define collection and schema for AdAccount
 export interface AdAccount {
     name:
-	type : String
+	type : string
     accountCode:
-	type : String
+	type : string
     defaultCurrency:
-	type : String
+	type : string
     defaultTimezone:
-	type : String
+	type : string
     Advertiser:
 	type : Schema.Types.ObjectId
     Users:

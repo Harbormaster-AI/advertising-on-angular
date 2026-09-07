@@ -2,11 +2,11 @@
 // Define collection and schema for DSP
 export interface DSP {
     name:
-	type : String
+	type : string
     website:
-	type : String
+	type : string
     region:
-	type : String
+	type : string
     AdAccounts:
  	type : [{ type: Schema.Types.ObjectId, ref: 'AdAccount' }]
 #

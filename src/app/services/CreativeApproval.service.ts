@@ -77,7 +77,7 @@ export class CreativeApprovalService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a CreativeApproval
+	// loads a CreativeApproval
 	// returns the results untouched as an Observable CreativeApproval
 	// CreativeApproval model
 	// delegates via URI
@@ -112,7 +112,7 @@ export class CreativeApprovalService extends HelperBaseService {
 		this.loadHelper( creativeApprovalId );
 
 	// get the CreativeAsset from storage
-	var tmp 	= new CreativeAssetService(this.http).editCreativeAsset(_creativeAssetId);
+	var tmp 	= new CreativeAssetService(this.http).getCreativeAsset(_creativeAssetId);
 
 	// assign the CreativeAsset
 	this.creativeApproval.creativeAsset = tmp;
@@ -149,7 +149,7 @@ export class CreativeApprovalService extends HelperBaseService {
 		this.loadHelper( creativeApprovalId );
 
 	// get the Publisher from storage
-	var tmp 	= new PublisherService(this.http).editPublisher(_publisherId);
+	var tmp 	= new PublisherService(this.http).getPublisher(_publisherId);
 
 	// assign the Publisher
 	this.creativeApproval.publisher = tmp;
@@ -191,7 +191,7 @@ export class CreativeApprovalService extends HelperBaseService {
 	// loadHelper - internal helper to load a CreativeApproval
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editCreativeApproval(id)
+		this.getCreativeApproval(id)
 			.subscribe((res : CreativeApproval) => {
 				this.creativeApproval = res;
 			});

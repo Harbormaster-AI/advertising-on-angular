@@ -86,7 +86,7 @@ export class PublisherService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a Publisher
+	// loads a Publisher
 	// returns the results untouched as an Observable Publisher
 	// Publisher model
 	// delegates via URI
@@ -128,7 +128,7 @@ export class PublisherService extends HelperBaseService {
 	// iterate over array of inventorySources ids
 	idList.forEach(function (id) {
 		// read the InventorySource
-		var inventorySource = new InventorySourceService(this.http).editInventorySource(id);
+		var inventorySource = new InventorySourceService(this.http).getInventorySource(id);
 		// add the InventorySource if not already assigned
 		if ( this.publisher.inventorySources.indexOf(inventorySource) == -1 )
 		this.publisher.inventorySources.push(inventorySource);
@@ -186,7 +186,7 @@ export class PublisherService extends HelperBaseService {
 	// iterate over array of deals ids
 	idList.forEach(function (id) {
 		// read the Deal
-		var deal = new DealService(this.http).editDeal(id);
+		var deal = new DealService(this.http).getDeal(id);
 		// add the Deal if not already assigned
 		if ( this.publisher.deals.indexOf(deal) == -1 )
 		this.publisher.deals.push(deal);
@@ -244,7 +244,7 @@ export class PublisherService extends HelperBaseService {
 	// iterate over array of creativeApprovals ids
 	idList.forEach(function (id) {
 		// read the CreativeApproval
-		var creativeApproval = new CreativeApprovalService(this.http).editCreativeApproval(id);
+		var creativeApproval = new CreativeApprovalService(this.http).getCreativeApproval(id);
 		// add the CreativeApproval if not already assigned
 		if ( this.publisher.creativeApprovals.indexOf(creativeApproval) == -1 )
 		this.publisher.creativeApprovals.push(creativeApproval);
@@ -302,7 +302,7 @@ export class PublisherService extends HelperBaseService {
 	// iterate over array of insertionOrders ids
 	idList.forEach(function (id) {
 		// read the InsertionOrder
-		var insertionOrder = new InsertionOrderService(this.http).editInsertionOrder(id);
+		var insertionOrder = new InsertionOrderService(this.http).getInsertionOrder(id);
 		// add the InsertionOrder if not already assigned
 		if ( this.publisher.insertionOrders.indexOf(insertionOrder) == -1 )
 		this.publisher.insertionOrders.push(insertionOrder);
@@ -360,7 +360,7 @@ export class PublisherService extends HelperBaseService {
 	// iterate over array of rateCards ids
 	idList.forEach(function (id) {
 		// read the RateCard
-		var rateCard = new RateCardService(this.http).editRateCard(id);
+		var rateCard = new RateCardService(this.http).getRateCard(id);
 		// add the RateCard if not already assigned
 		if ( this.publisher.rateCards.indexOf(rateCard) == -1 )
 		this.publisher.rateCards.push(rateCard);
@@ -416,7 +416,7 @@ export class PublisherService extends HelperBaseService {
 	// loadHelper - internal helper to load a Publisher
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editPublisher(id)
+		this.getPublisher(id)
 			.subscribe((res : Publisher) => {
 				this.publisher = res;
 			});

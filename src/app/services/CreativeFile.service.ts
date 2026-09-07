@@ -76,7 +76,7 @@ export class CreativeFileService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a CreativeFile
+	// loads a CreativeFile
 	// returns the results untouched as an Observable CreativeFile
 	// CreativeFile model
 	// delegates via URI
@@ -111,7 +111,7 @@ export class CreativeFileService extends HelperBaseService {
 		this.loadHelper( creativeFileId );
 
 	// get the CreativeAsset from storage
-	var tmp 	= new CreativeAssetService(this.http).editCreativeAsset(_creativeAssetId);
+	var tmp 	= new CreativeAssetService(this.http).getCreativeAsset(_creativeAssetId);
 
 	// assign the CreativeAsset
 	this.creativeFile.creativeAsset = tmp;
@@ -153,7 +153,7 @@ export class CreativeFileService extends HelperBaseService {
 	// loadHelper - internal helper to load a CreativeFile
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editCreativeFile(id)
+		this.getCreativeFile(id)
 			.subscribe((res : CreativeFile) => {
 				this.creativeFile = res;
 			});

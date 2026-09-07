@@ -2,9 +2,9 @@
 // Define collection and schema for Publisher
 export interface Publisher {
     name:
-	type : String
+	type : string
     website:
-	type : String
+	type : string
     InventorySources:
  	type : [{ type: Schema.Types.ObjectId, ref: 'InventorySource' }]
     Deals:

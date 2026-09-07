@@ -72,7 +72,7 @@ export class KPIService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a KPI
+	// loads a KPI
 	// returns the results untouched as an Observable KPI
 	// KPI model
 	// delegates via URI
@@ -107,7 +107,7 @@ export class KPIService extends HelperBaseService {
 		this.loadHelper( kPIId );
 
 	// get the Campaign from storage
-	var tmp 	= new CampaignService(this.http).editCampaign(_campaignId);
+	var tmp 	= new CampaignService(this.http).getCampaign(_campaignId);
 
 	// assign the Campaign
 	this.kPI.campaign = tmp;
@@ -149,7 +149,7 @@ export class KPIService extends HelperBaseService {
 	// loadHelper - internal helper to load a KPI
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editKPI(id)
+		this.getKPI(id)
 			.subscribe((res : KPI) => {
 				this.kPI = res;
 			});

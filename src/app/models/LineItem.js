@@ -2,7 +2,7 @@
 // Define collection and schema for LineItem
 export interface LineItem {
     name:
-	type : String
+	type : string
     bidAmount:
 	type : Money
     dailyBudget:

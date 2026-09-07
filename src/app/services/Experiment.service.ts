@@ -81,7 +81,7 @@ export class ExperimentService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a Experiment
+	// loads a Experiment
 	// returns the results untouched as an Observable Experiment
 	// Experiment model
 	// delegates via URI
@@ -116,7 +116,7 @@ export class ExperimentService extends HelperBaseService {
 		this.loadHelper( experimentId );
 
 	// get the Campaign from storage
-	var tmp 	= new CampaignService(this.http).editCampaign(_campaignId);
+	var tmp 	= new CampaignService(this.http).getCampaign(_campaignId);
 
 	// assign the Campaign
 	this.experiment.campaign = tmp;
@@ -160,7 +160,7 @@ export class ExperimentService extends HelperBaseService {
 	// iterate over array of variants ids
 	idList.forEach(function (id) {
 		// read the ExperimentVariant
-		var experimentVariant = new ExperimentVariantService(this.http).editExperimentVariant(id);
+		var experimentVariant = new ExperimentVariantService(this.http).getExperimentVariant(id);
 		// add the ExperimentVariant if not already assigned
 		if ( this.experiment.variants.indexOf(experimentVariant) == -1 )
 		this.experiment.variants.push(experimentVariant);
@@ -216,7 +216,7 @@ export class ExperimentService extends HelperBaseService {
 	// loadHelper - internal helper to load a Experiment
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editExperiment(id)
+		this.getExperiment(id)
 			.subscribe((res : Experiment) => {
 				this.experiment = res;
 			});

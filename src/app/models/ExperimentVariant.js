@@ -2,7 +2,7 @@
 // Define collection and schema for ExperimentVariant
 export interface ExperimentVariant {
     name:
-	type : String
+	type : string
     allocation:
 	type : Percentage
     Experiment:

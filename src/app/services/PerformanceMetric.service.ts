@@ -86,7 +86,7 @@ export class PerformanceMetricService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a PerformanceMetric
+	// loads a PerformanceMetric
 	// returns the results untouched as an Observable PerformanceMetric
 	// PerformanceMetric model
 	// delegates via URI
@@ -121,7 +121,7 @@ export class PerformanceMetricService extends HelperBaseService {
 		this.loadHelper( performanceMetricId );
 
 	// get the AdAccount from storage
-	var tmp 	= new AdAccountService(this.http).editAdAccount(_adAccountId);
+	var tmp 	= new AdAccountService(this.http).getAdAccount(_adAccountId);
 
 	// assign the AdAccount
 	this.performanceMetric.adAccount = tmp;
@@ -158,7 +158,7 @@ export class PerformanceMetricService extends HelperBaseService {
 		this.loadHelper( performanceMetricId );
 
 	// get the Campaign from storage
-	var tmp 	= new CampaignService(this.http).editCampaign(_campaignId);
+	var tmp 	= new CampaignService(this.http).getCampaign(_campaignId);
 
 	// assign the Campaign
 	this.performanceMetric.campaign = tmp;
@@ -195,7 +195,7 @@ export class PerformanceMetricService extends HelperBaseService {
 		this.loadHelper( performanceMetricId );
 
 	// get the LineItem from storage
-	var tmp 	= new LineItemService(this.http).editLineItem(_lineItemId);
+	var tmp 	= new LineItemService(this.http).getLineItem(_lineItemId);
 
 	// assign the LineItem
 	this.performanceMetric.lineItem = tmp;
@@ -232,7 +232,7 @@ export class PerformanceMetricService extends HelperBaseService {
 		this.loadHelper( performanceMetricId );
 
 	// get the Placement from storage
-	var tmp 	= new PlacementService(this.http).editPlacement(_placementId);
+	var tmp 	= new PlacementService(this.http).getPlacement(_placementId);
 
 	// assign the Placement
 	this.performanceMetric.placement = tmp;
@@ -269,7 +269,7 @@ export class PerformanceMetricService extends HelperBaseService {
 		this.loadHelper( performanceMetricId );
 
 	// get the CreativeAsset from storage
-	var tmp 	= new CreativeAssetService(this.http).editCreativeAsset(_creativeAssetId);
+	var tmp 	= new CreativeAssetService(this.http).getCreativeAsset(_creativeAssetId);
 
 	// assign the CreativeAsset
 	this.performanceMetric.creativeAsset = tmp;
@@ -311,7 +311,7 @@ export class PerformanceMetricService extends HelperBaseService {
 	// loadHelper - internal helper to load a PerformanceMetric
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editPerformanceMetric(id)
+		this.getPerformanceMetric(id)
 			.subscribe((res : PerformanceMetric) => {
 				this.performanceMetric = res;
 			});

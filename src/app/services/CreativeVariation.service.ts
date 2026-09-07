@@ -78,7 +78,7 @@ export class CreativeVariationService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a CreativeVariation
+	// loads a CreativeVariation
 	// returns the results untouched as an Observable CreativeVariation
 	// CreativeVariation model
 	// delegates via URI
@@ -113,7 +113,7 @@ export class CreativeVariationService extends HelperBaseService {
 		this.loadHelper( creativeVariationId );
 
 	// get the CreativeAsset from storage
-	var tmp 	= new CreativeAssetService(this.http).editCreativeAsset(_creativeAssetId);
+	var tmp 	= new CreativeAssetService(this.http).getCreativeAsset(_creativeAssetId);
 
 	// assign the CreativeAsset
 	this.creativeVariation.creativeAsset = tmp;
@@ -155,7 +155,7 @@ export class CreativeVariationService extends HelperBaseService {
 	// loadHelper - internal helper to load a CreativeVariation
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editCreativeVariation(id)
+		this.getCreativeVariation(id)
 			.subscribe((res : CreativeVariation) => {
 				this.creativeVariation = res;
 			});

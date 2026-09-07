@@ -85,7 +85,7 @@ export class InsertionOrderService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a InsertionOrder
+	// loads a InsertionOrder
 	// returns the results untouched as an Observable InsertionOrder
 	// InsertionOrder model
 	// delegates via URI
@@ -120,7 +120,7 @@ export class InsertionOrderService extends HelperBaseService {
 		this.loadHelper( insertionOrderId );
 
 	// get the Advertiser from storage
-	var tmp 	= new AdvertiserService(this.http).editAdvertiser(_advertiserId);
+	var tmp 	= new AdvertiserService(this.http).getAdvertiser(_advertiserId);
 
 	// assign the Advertiser
 	this.insertionOrder.advertiser = tmp;
@@ -157,7 +157,7 @@ export class InsertionOrderService extends HelperBaseService {
 		this.loadHelper( insertionOrderId );
 
 	// get the Agency from storage
-	var tmp 	= new AgencyService(this.http).editAgency(_agencyId);
+	var tmp 	= new AgencyService(this.http).getAgency(_agencyId);
 
 	// assign the Agency
 	this.insertionOrder.agency = tmp;
@@ -194,7 +194,7 @@ export class InsertionOrderService extends HelperBaseService {
 		this.loadHelper( insertionOrderId );
 
 	// get the Publisher from storage
-	var tmp 	= new PublisherService(this.http).editPublisher(_publisherId);
+	var tmp 	= new PublisherService(this.http).getPublisher(_publisherId);
 
 	// assign the Publisher
 	this.insertionOrder.publisher = tmp;
@@ -238,7 +238,7 @@ export class InsertionOrderService extends HelperBaseService {
 	// iterate over array of campaigns ids
 	idList.forEach(function (id) {
 		// read the Campaign
-		var campaign = new CampaignService(this.http).editCampaign(id);
+		var campaign = new CampaignService(this.http).getCampaign(id);
 		// add the Campaign if not already assigned
 		if ( this.insertionOrder.campaigns.indexOf(campaign) == -1 )
 		this.insertionOrder.campaigns.push(campaign);
@@ -294,7 +294,7 @@ export class InsertionOrderService extends HelperBaseService {
 	// loadHelper - internal helper to load a InsertionOrder
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editInsertionOrder(id)
+		this.getInsertionOrder(id)
 			.subscribe((res : InsertionOrder) => {
 				this.insertionOrder = res;
 			});

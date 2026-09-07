@@ -2,7 +2,7 @@
 // Define collection and schema for CreativeApproval
 export interface CreativeApproval {
     reviewer:
-	type : String
+	type : string
     reviewedAt:
 	type : Date
     CreativeAsset:

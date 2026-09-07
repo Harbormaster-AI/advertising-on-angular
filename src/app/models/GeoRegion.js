@@ -2,9 +2,9 @@
 // Define collection and schema for GeoRegion
 export interface GeoRegion {
     code:
-	type : String
+	type : string
     name:
-	type : String
+	type : string
     Parent:
 	type : Schema.Types.ObjectId
     Children:

@@ -2,7 +2,7 @@
 // Define collection and schema for InsertionOrder
 export interface InsertionOrder {
     ioNumber:
-	type : String
+	type : string
     agreedBudget:
 	type : Money
     flight:

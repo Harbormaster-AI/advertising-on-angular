@@ -2,9 +2,9 @@
 // Define collection and schema for ContentCategory
 export interface ContentCategory {
     code:
-	type : String
+	type : string
     name:
-	type : String
+	type : string
 #
     collection: 'contentCategorys'
 }

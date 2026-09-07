@@ -2,11 +2,11 @@
 // Define collection and schema for AdSlot
 export interface AdSlot {
     slotCode:
-	type : String
+	type : string
     width:
-	type : Number
+	type : number
     height:
-	type : Number
+	type : number
     floorPrice:
 	type : Money
     InventorySource:

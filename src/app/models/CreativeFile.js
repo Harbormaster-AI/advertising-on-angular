@@ -4,11 +4,11 @@ export interface CreativeFile {
     uri:
 	type : URL
     fileSizeKB:
-	type : Number
+	type : number
     mimeType:
-	type : String
+	type : string
     checksum:
-	type : String
+	type : string
     CreativeAsset:
 	type : Schema.Types.ObjectId
 #

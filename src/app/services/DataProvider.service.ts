@@ -74,7 +74,7 @@ export class DataProviderService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a DataProvider
+	// loads a DataProvider
 	// returns the results untouched as an Observable DataProvider
 	// DataProvider model
 	// delegates via URI
@@ -116,7 +116,7 @@ export class DataProviderService extends HelperBaseService {
 	// iterate over array of audienceSegments ids
 	idList.forEach(function (id) {
 		// read the AudienceSegment
-		var audienceSegment = new AudienceSegmentService(this.http).editAudienceSegment(id);
+		var audienceSegment = new AudienceSegmentService(this.http).getAudienceSegment(id);
 		// add the AudienceSegment if not already assigned
 		if ( this.dataProvider.audienceSegments.indexOf(audienceSegment) == -1 )
 		this.dataProvider.audienceSegments.push(audienceSegment);
@@ -172,7 +172,7 @@ export class DataProviderService extends HelperBaseService {
 	// loadHelper - internal helper to load a DataProvider
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editDataProvider(id)
+		this.getDataProvider(id)
 			.subscribe((res : DataProvider) => {
 				this.dataProvider = res;
 			});

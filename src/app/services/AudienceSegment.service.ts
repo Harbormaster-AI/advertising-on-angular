@@ -79,7 +79,7 @@ export class AudienceSegmentService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a AudienceSegment
+	// loads a AudienceSegment
 	// returns the results untouched as an Observable AudienceSegment
 	// AudienceSegment model
 	// delegates via URI
@@ -114,7 +114,7 @@ export class AudienceSegmentService extends HelperBaseService {
 		this.loadHelper( audienceSegmentId );
 
 	// get the DataProvider from storage
-	var tmp 	= new DataProviderService(this.http).editDataProvider(_providerId);
+	var tmp 	= new DataProviderService(this.http).getDataProvider(_providerId);
 
 	// assign the Provider
 	this.audienceSegment.provider = tmp;
@@ -158,7 +158,7 @@ export class AudienceSegmentService extends HelperBaseService {
 	// iterate over array of campaigns ids
 	idList.forEach(function (id) {
 		// read the Campaign
-		var campaign = new CampaignService(this.http).editCampaign(id);
+		var campaign = new CampaignService(this.http).getCampaign(id);
 		// add the Campaign if not already assigned
 		if ( this.audienceSegment.campaigns.indexOf(campaign) == -1 )
 		this.audienceSegment.campaigns.push(campaign);
@@ -214,7 +214,7 @@ export class AudienceSegmentService extends HelperBaseService {
 	// loadHelper - internal helper to load a AudienceSegment
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editAudienceSegment(id)
+		this.getAudienceSegment(id)
 			.subscribe((res : AudienceSegment) => {
 				this.audienceSegment = res;
 			});

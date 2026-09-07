@@ -72,7 +72,7 @@ export class BrandSafetyPolicyService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a BrandSafetyPolicy
+	// loads a BrandSafetyPolicy
 	// returns the results untouched as an Observable BrandSafetyPolicy
 	// BrandSafetyPolicy model
 	// delegates via URI
@@ -114,7 +114,7 @@ export class BrandSafetyPolicyService extends HelperBaseService {
 	// iterate over array of targetingProfiles ids
 	idList.forEach(function (id) {
 		// read the TargetingProfile
-		var targetingProfile = new TargetingProfileService(this.http).editTargetingProfile(id);
+		var targetingProfile = new TargetingProfileService(this.http).getTargetingProfile(id);
 		// add the TargetingProfile if not already assigned
 		if ( this.brandSafetyPolicy.targetingProfiles.indexOf(targetingProfile) == -1 )
 		this.brandSafetyPolicy.targetingProfiles.push(targetingProfile);
@@ -170,7 +170,7 @@ export class BrandSafetyPolicyService extends HelperBaseService {
 	// loadHelper - internal helper to load a BrandSafetyPolicy
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editBrandSafetyPolicy(id)
+		this.getBrandSafetyPolicy(id)
 			.subscribe((res : BrandSafetyPolicy) => {
 				this.brandSafetyPolicy = res;
 			});

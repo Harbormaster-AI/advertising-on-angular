@@ -74,7 +74,7 @@ export class DeviceCriterionService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a DeviceCriterion
+	// loads a DeviceCriterion
 	// returns the results untouched as an Observable DeviceCriterion
 	// DeviceCriterion model
 	// delegates via URI
@@ -109,7 +109,7 @@ export class DeviceCriterionService extends HelperBaseService {
 		this.loadHelper( deviceCriterionId );
 
 	// get the TargetingProfile from storage
-	var tmp 	= new TargetingProfileService(this.http).editTargetingProfile(_targetingProfileId);
+	var tmp 	= new TargetingProfileService(this.http).getTargetingProfile(_targetingProfileId);
 
 	// assign the TargetingProfile
 	this.deviceCriterion.targetingProfile = tmp;
@@ -151,7 +151,7 @@ export class DeviceCriterionService extends HelperBaseService {
 	// loadHelper - internal helper to load a DeviceCriterion
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editDeviceCriterion(id)
+		this.getDeviceCriterion(id)
 			.subscribe((res : DeviceCriterion) => {
 				this.deviceCriterion = res;
 			});

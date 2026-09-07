@@ -2,9 +2,9 @@
 // Define collection and schema for PaymentMethod
 export interface PaymentMethod {
     last4:
-	type : String
+	type : string
     cardholderName:
-	type : String
+	type : string
     billingAddress:
 	type : Address
     BillingProfile:

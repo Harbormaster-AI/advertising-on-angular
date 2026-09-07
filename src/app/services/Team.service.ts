@@ -76,7 +76,7 @@ export class TeamService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a Team
+	// loads a Team
 	// returns the results untouched as an Observable Team
 	// Team model
 	// delegates via URI
@@ -111,7 +111,7 @@ export class TeamService extends HelperBaseService {
 		this.loadHelper( teamId );
 
 	// get the Agency from storage
-	var tmp 	= new AgencyService(this.http).editAgency(_agencyId);
+	var tmp 	= new AgencyService(this.http).getAgency(_agencyId);
 
 	// assign the Agency
 	this.team.agency = tmp;
@@ -155,7 +155,7 @@ export class TeamService extends HelperBaseService {
 	// iterate over array of users ids
 	idList.forEach(function (id) {
 		// read the User
-		var user = new UserService(this.http).editUser(id);
+		var user = new UserService(this.http).getUser(id);
 		// add the User if not already assigned
 		if ( this.team.users.indexOf(user) == -1 )
 		this.team.users.push(user);
@@ -213,7 +213,7 @@ export class TeamService extends HelperBaseService {
 	// iterate over array of adAccounts ids
 	idList.forEach(function (id) {
 		// read the AdAccount
-		var adAccount = new AdAccountService(this.http).editAdAccount(id);
+		var adAccount = new AdAccountService(this.http).getAdAccount(id);
 		// add the AdAccount if not already assigned
 		if ( this.team.adAccounts.indexOf(adAccount) == -1 )
 		this.team.adAccounts.push(adAccount);
@@ -269,7 +269,7 @@ export class TeamService extends HelperBaseService {
 	// loadHelper - internal helper to load a Team
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editTeam(id)
+		this.getTeam(id)
 			.subscribe((res : Team) => {
 				this.team = res;
 			});

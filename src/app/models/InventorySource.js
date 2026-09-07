@@ -2,9 +2,9 @@
 // Define collection and schema for InventorySource
 export interface InventorySource {
     name:
-	type : String
+	type : string
     domain:
-	type : String
+	type : string
     Publisher:
 	type : Schema.Types.ObjectId
     AdSlots:

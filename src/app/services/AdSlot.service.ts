@@ -84,7 +84,7 @@ export class AdSlotService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a AdSlot
+	// loads a AdSlot
 	// returns the results untouched as an Observable AdSlot
 	// AdSlot model
 	// delegates via URI
@@ -119,7 +119,7 @@ export class AdSlotService extends HelperBaseService {
 		this.loadHelper( adSlotId );
 
 	// get the InventorySource from storage
-	var tmp 	= new InventorySourceService(this.http).editInventorySource(_inventorySourceId);
+	var tmp 	= new InventorySourceService(this.http).getInventorySource(_inventorySourceId);
 
 	// assign the InventorySource
 	this.adSlot.inventorySource = tmp;
@@ -163,7 +163,7 @@ export class AdSlotService extends HelperBaseService {
 	// iterate over array of placements ids
 	idList.forEach(function (id) {
 		// read the Placement
-		var placement = new PlacementService(this.http).editPlacement(id);
+		var placement = new PlacementService(this.http).getPlacement(id);
 		// add the Placement if not already assigned
 		if ( this.adSlot.placements.indexOf(placement) == -1 )
 		this.adSlot.placements.push(placement);
@@ -221,7 +221,7 @@ export class AdSlotService extends HelperBaseService {
 	// iterate over array of rates ids
 	idList.forEach(function (id) {
 		// read the Rate
-		var rate = new RateService(this.http).editRate(id);
+		var rate = new RateService(this.http).getRate(id);
 		// add the Rate if not already assigned
 		if ( this.adSlot.rates.indexOf(rate) == -1 )
 		this.adSlot.rates.push(rate);
@@ -277,7 +277,7 @@ export class AdSlotService extends HelperBaseService {
 	// loadHelper - internal helper to load a AdSlot
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editAdSlot(id)
+		this.getAdSlot(id)
 			.subscribe((res : AdSlot) => {
 				this.adSlot = res;
 			});

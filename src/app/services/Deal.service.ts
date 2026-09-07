@@ -78,7 +78,7 @@ export class DealService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a Deal
+	// loads a Deal
 	// returns the results untouched as an Observable Deal
 	// Deal model
 	// delegates via URI
@@ -113,7 +113,7 @@ export class DealService extends HelperBaseService {
 		this.loadHelper( dealId );
 
 	// get the Publisher from storage
-	var tmp 	= new PublisherService(this.http).editPublisher(_publisherId);
+	var tmp 	= new PublisherService(this.http).getPublisher(_publisherId);
 
 	// assign the Publisher
 	this.deal.publisher = tmp;
@@ -157,7 +157,7 @@ export class DealService extends HelperBaseService {
 	// iterate over array of inventorySources ids
 	idList.forEach(function (id) {
 		// read the InventorySource
-		var inventorySource = new InventorySourceService(this.http).editInventorySource(id);
+		var inventorySource = new InventorySourceService(this.http).getInventorySource(id);
 		// add the InventorySource if not already assigned
 		if ( this.deal.inventorySources.indexOf(inventorySource) == -1 )
 		this.deal.inventorySources.push(inventorySource);
@@ -215,7 +215,7 @@ export class DealService extends HelperBaseService {
 	// iterate over array of placements ids
 	idList.forEach(function (id) {
 		// read the Placement
-		var placement = new PlacementService(this.http).editPlacement(id);
+		var placement = new PlacementService(this.http).getPlacement(id);
 		// add the Placement if not already assigned
 		if ( this.deal.placements.indexOf(placement) == -1 )
 		this.deal.placements.push(placement);
@@ -271,7 +271,7 @@ export class DealService extends HelperBaseService {
 	// loadHelper - internal helper to load a Deal
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editDeal(id)
+		this.getDeal(id)
 			.subscribe((res : Deal) => {
 				this.deal = res;
 			});

@@ -99,7 +99,7 @@ export class LineItemService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a LineItem
+	// loads a LineItem
 	// returns the results untouched as an Observable LineItem
 	// LineItem model
 	// delegates via URI
@@ -134,7 +134,7 @@ export class LineItemService extends HelperBaseService {
 		this.loadHelper( lineItemId );
 
 	// get the Campaign from storage
-	var tmp 	= new CampaignService(this.http).editCampaign(_campaignId);
+	var tmp 	= new CampaignService(this.http).getCampaign(_campaignId);
 
 	// assign the Campaign
 	this.lineItem.campaign = tmp;
@@ -171,7 +171,7 @@ export class LineItemService extends HelperBaseService {
 		this.loadHelper( lineItemId );
 
 	// get the TargetingProfile from storage
-	var tmp 	= new TargetingProfileService(this.http).editTargetingProfile(_targetingProfileId);
+	var tmp 	= new TargetingProfileService(this.http).getTargetingProfile(_targetingProfileId);
 
 	// assign the TargetingProfile
 	this.lineItem.targetingProfile = tmp;
@@ -208,7 +208,7 @@ export class LineItemService extends HelperBaseService {
 		this.loadHelper( lineItemId );
 
 	// get the Deal from storage
-	var tmp 	= new DealService(this.http).editDeal(_dealId);
+	var tmp 	= new DealService(this.http).getDeal(_dealId);
 
 	// assign the Deal
 	this.lineItem.deal = tmp;
@@ -252,7 +252,7 @@ export class LineItemService extends HelperBaseService {
 	// iterate over array of placements ids
 	idList.forEach(function (id) {
 		// read the Placement
-		var placement = new PlacementService(this.http).editPlacement(id);
+		var placement = new PlacementService(this.http).getPlacement(id);
 		// add the Placement if not already assigned
 		if ( this.lineItem.placements.indexOf(placement) == -1 )
 		this.lineItem.placements.push(placement);
@@ -310,7 +310,7 @@ export class LineItemService extends HelperBaseService {
 	// iterate over array of creatives ids
 	idList.forEach(function (id) {
 		// read the CreativeAsset
-		var creativeAsset = new CreativeAssetService(this.http).editCreativeAsset(id);
+		var creativeAsset = new CreativeAssetService(this.http).getCreativeAsset(id);
 		// add the CreativeAsset if not already assigned
 		if ( this.lineItem.creatives.indexOf(creativeAsset) == -1 )
 		this.lineItem.creatives.push(creativeAsset);
@@ -368,7 +368,7 @@ export class LineItemService extends HelperBaseService {
 	// iterate over array of performanceMetrics ids
 	idList.forEach(function (id) {
 		// read the PerformanceMetric
-		var performanceMetric = new PerformanceMetricService(this.http).editPerformanceMetric(id);
+		var performanceMetric = new PerformanceMetricService(this.http).getPerformanceMetric(id);
 		// add the PerformanceMetric if not already assigned
 		if ( this.lineItem.performanceMetrics.indexOf(performanceMetric) == -1 )
 		this.lineItem.performanceMetrics.push(performanceMetric);
@@ -424,7 +424,7 @@ export class LineItemService extends HelperBaseService {
 	// loadHelper - internal helper to load a LineItem
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editLineItem(id)
+		this.getLineItem(id)
 			.subscribe((res : LineItem) => {
 				this.lineItem = res;
 			});

@@ -2,7 +2,7 @@
 // Define collection and schema for TargetingProfile
 export interface TargetingProfile {
     name:
-	type : String
+	type : string
     AudienceSegments:
  	type : [{ type: Schema.Types.ObjectId, ref: 'AudienceSegment' }]
     GeoRegions:

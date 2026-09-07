@@ -2,9 +2,9 @@
 // Define collection and schema for User
 export interface User {
     firstName:
-	type : String
+	type : string
     lastName:
-	type : String
+	type : string
     email:
 	type : Email
     Agency:

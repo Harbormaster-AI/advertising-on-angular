@@ -2,13 +2,13 @@
 // Define collection and schema for Advertiser
 export interface Advertiser {
     name:
-	type : String
+	type : string
     legalName:
-	type : String
+	type : string
     industry:
-	type : String
+	type : string
     website:
-	type : String
+	type : string
     Agency:
 	type : Schema.Types.ObjectId
     AdAccounts:

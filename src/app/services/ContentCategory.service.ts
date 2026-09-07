@@ -69,7 +69,7 @@ export class ContentCategoryService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a ContentCategory
+	// loads a ContentCategory
 	// returns the results untouched as an Observable ContentCategory
 	// ContentCategory model
 	// delegates via URI
@@ -109,7 +109,7 @@ export class ContentCategoryService extends HelperBaseService {
 	// loadHelper - internal helper to load a ContentCategory
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editContentCategory(id)
+		this.getContentCategory(id)
 			.subscribe((res : ContentCategory) => {
 				this.contentCategory = res;
 			});

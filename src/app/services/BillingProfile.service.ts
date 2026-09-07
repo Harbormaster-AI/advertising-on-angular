@@ -82,7 +82,7 @@ export class BillingProfileService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a BillingProfile
+	// loads a BillingProfile
 	// returns the results untouched as an Observable BillingProfile
 	// BillingProfile model
 	// delegates via URI
@@ -117,7 +117,7 @@ export class BillingProfileService extends HelperBaseService {
 		this.loadHelper( billingProfileId );
 
 	// get the Advertiser from storage
-	var tmp 	= new AdvertiserService(this.http).editAdvertiser(_advertiserId);
+	var tmp 	= new AdvertiserService(this.http).getAdvertiser(_advertiserId);
 
 	// assign the Advertiser
 	this.billingProfile.advertiser = tmp;
@@ -161,7 +161,7 @@ export class BillingProfileService extends HelperBaseService {
 	// iterate over array of paymentMethods ids
 	idList.forEach(function (id) {
 		// read the PaymentMethod
-		var paymentMethod = new PaymentMethodService(this.http).editPaymentMethod(id);
+		var paymentMethod = new PaymentMethodService(this.http).getPaymentMethod(id);
 		// add the PaymentMethod if not already assigned
 		if ( this.billingProfile.paymentMethods.indexOf(paymentMethod) == -1 )
 		this.billingProfile.paymentMethods.push(paymentMethod);
@@ -219,7 +219,7 @@ export class BillingProfileService extends HelperBaseService {
 	// iterate over array of adAccounts ids
 	idList.forEach(function (id) {
 		// read the AdAccount
-		var adAccount = new AdAccountService(this.http).editAdAccount(id);
+		var adAccount = new AdAccountService(this.http).getAdAccount(id);
 		// add the AdAccount if not already assigned
 		if ( this.billingProfile.adAccounts.indexOf(adAccount) == -1 )
 		this.billingProfile.adAccounts.push(adAccount);
@@ -275,7 +275,7 @@ export class BillingProfileService extends HelperBaseService {
 	// loadHelper - internal helper to load a BillingProfile
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editBillingProfile(id)
+		this.getBillingProfile(id)
 			.subscribe((res : BillingProfile) => {
 				this.billingProfile = res;
 			});

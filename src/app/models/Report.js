@@ -2,7 +2,7 @@
 // Define collection and schema for Report
 export interface Report {
     reportName:
-	type : String
+	type : string
     generatedAt:
 	type : Date
     fileUrl:

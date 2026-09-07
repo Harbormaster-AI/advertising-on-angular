@@ -85,7 +85,7 @@ export class AgencyService extends HelperBaseService {
 	}
 	
 	//********************************************************************
-	// edit a Agency
+	// loads a Agency
 	// returns the results untouched as an Observable Agency
 	// Agency model
 	// delegates via URI
@@ -127,7 +127,7 @@ export class AgencyService extends HelperBaseService {
 	// iterate over array of advertisers ids
 	idList.forEach(function (id) {
 		// read the Advertiser
-		var advertiser = new AdvertiserService(this.http).editAdvertiser(id);
+		var advertiser = new AdvertiserService(this.http).getAdvertiser(id);
 		// add the Advertiser if not already assigned
 		if ( this.agency.advertisers.indexOf(advertiser) == -1 )
 		this.agency.advertisers.push(advertiser);
@@ -185,7 +185,7 @@ export class AgencyService extends HelperBaseService {
 	// iterate over array of teams ids
 	idList.forEach(function (id) {
 		// read the Team
-		var team = new TeamService(this.http).editTeam(id);
+		var team = new TeamService(this.http).getTeam(id);
 		// add the Team if not already assigned
 		if ( this.agency.teams.indexOf(team) == -1 )
 		this.agency.teams.push(team);
@@ -243,7 +243,7 @@ export class AgencyService extends HelperBaseService {
 	// iterate over array of users ids
 	idList.forEach(function (id) {
 		// read the User
-		var user = new UserService(this.http).editUser(id);
+		var user = new UserService(this.http).getUser(id);
 		// add the User if not already assigned
 		if ( this.agency.users.indexOf(user) == -1 )
 		this.agency.users.push(user);
@@ -301,7 +301,7 @@ export class AgencyService extends HelperBaseService {
 	// iterate over array of insertionOrders ids
 	idList.forEach(function (id) {
 		// read the InsertionOrder
-		var insertionOrder = new InsertionOrderService(this.http).editInsertionOrder(id);
+		var insertionOrder = new InsertionOrderService(this.http).getInsertionOrder(id);
 		// add the InsertionOrder if not already assigned
 		if ( this.agency.insertionOrders.indexOf(insertionOrder) == -1 )
 		this.agency.insertionOrders.push(insertionOrder);
@@ -357,7 +357,7 @@ export class AgencyService extends HelperBaseService {
 	// loadHelper - internal helper to load a Agency
 	//********************************************************************	
 	loadHelper( id ) {
-		this.editAgency(id)
+		this.getAgency(id)
 			.subscribe((res : Agency) => {
 				this.agency = res;
 			});
