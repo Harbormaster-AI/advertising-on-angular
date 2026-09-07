@@ -2,7 +2,7 @@
 // Define collection and schema for ConversionEvent
 export interface ConversionEvent {
     timestamp:
-	type : String
+	type : Date
     value:
 	type : Money
     Campaign:

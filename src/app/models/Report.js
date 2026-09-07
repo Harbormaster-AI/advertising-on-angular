@@ -4,7 +4,7 @@ export interface Report {
     reportName:
 	type : String
     generatedAt:
-	type : String
+	type : Date
     fileUrl:
 	type : URL
     AdAccount:
