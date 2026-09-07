@@ -38,7 +38,7 @@ export class PerformanceMetricService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createPerformanceMetric(date, value, AdAccount, Campaign, LineItem, Placement, CreativeAsset, MetricType) : Observable<any> {
+	addPerformanceMetric(date, value, AdAccount, Campaign, LineItem, Placement, CreativeAsset, MetricType) : Observable<any> {
 		const uri = this.apiUrl + '/PerformanceMetric/create';
 		const obj = {
 			      		date: date,
@@ -91,7 +91,7 @@ export class PerformanceMetricService extends HelperBaseService {
 	// PerformanceMetric model
 	// delegates via URI
 	//********************************************************************
-	loadPerformanceMetric(id) : Observable<PerformanceMetric> {
+	getPerformanceMetric(id) : Observable<PerformanceMetric> {
 		const uri = this.apiUrl + '/PerformanceMetric/load/' + id;
 
 		return this.http.get<PerformanceMetric>(uri);

@@ -38,7 +38,7 @@ export class TargetingProfileService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createTargetingProfile(name, AudienceSegments, GeoRegions, ContentCategories, BrandSafetyPolicy, DeviceCriteria) : Observable<any> {
+	addTargetingProfile(name, AudienceSegments, GeoRegions, ContentCategories, BrandSafetyPolicy, DeviceCriteria) : Observable<any> {
 		const uri = this.apiUrl + '/TargetingProfile/create';
 		const obj = {
 			      		name: name,
@@ -87,7 +87,7 @@ export class TargetingProfileService extends HelperBaseService {
 	// TargetingProfile model
 	// delegates via URI
 	//********************************************************************
-	loadTargetingProfile(id) : Observable<TargetingProfile> {
+	getTargetingProfile(id) : Observable<TargetingProfile> {
 		const uri = this.apiUrl + '/TargetingProfile/load/' + id;
 
 		return this.http.get<TargetingProfile>(uri);

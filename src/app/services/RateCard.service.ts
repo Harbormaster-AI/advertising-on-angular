@@ -35,7 +35,7 @@ export class RateCardService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createRateCard(name, effectiveDate, currency, Publisher, Rates) : Observable<any> {
+	addRateCard(name, effectiveDate, currency, Publisher, Rates) : Observable<any> {
 		const uri = this.apiUrl + '/RateCard/create';
 		const obj = {
 			      		name: name,
@@ -82,7 +82,7 @@ export class RateCardService extends HelperBaseService {
 	// RateCard model
 	// delegates via URI
 	//********************************************************************
-	loadRateCard(id) : Observable<RateCard> {
+	getRateCard(id) : Observable<RateCard> {
 		const uri = this.apiUrl + '/RateCard/load/' + id;
 
 		return this.http.get<RateCard>(uri);

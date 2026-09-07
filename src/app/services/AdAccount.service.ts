@@ -39,7 +39,7 @@ export class AdAccountService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createAdAccount(name, accountCode, defaultCurrency, defaultTimezone, Advertiser, Users, Campaigns, BillingProfile, Dsp, PerformanceMetrics) : Observable<any> {
+	addAdAccount(name, accountCode, defaultCurrency, defaultTimezone, Advertiser, Users, Campaigns, BillingProfile, Dsp, PerformanceMetrics) : Observable<any> {
 		const uri = this.apiUrl + '/AdAccount/create';
 		const obj = {
 			      		name: name,
@@ -96,7 +96,7 @@ export class AdAccountService extends HelperBaseService {
 	// AdAccount model
 	// delegates via URI
 	//********************************************************************
-	loadAdAccount(id) : Observable<AdAccount> {
+	getAdAccount(id) : Observable<AdAccount> {
 		const uri = this.apiUrl + '/AdAccount/load/' + id;
 
 		return this.http.get<AdAccount>(uri);

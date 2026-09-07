@@ -37,7 +37,7 @@ export class InsertionOrderService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createInsertionOrder(ioNumber, agreedBudget, flight, Advertiser, Agency, Publisher, Campaigns, Status) : Observable<any> {
+	addInsertionOrder(ioNumber, agreedBudget, flight, Advertiser, Agency, Publisher, Campaigns, Status) : Observable<any> {
 		const uri = this.apiUrl + '/InsertionOrder/create';
 		const obj = {
 			      		ioNumber: ioNumber,
@@ -90,7 +90,7 @@ export class InsertionOrderService extends HelperBaseService {
 	// InsertionOrder model
 	// delegates via URI
 	//********************************************************************
-	loadInsertionOrder(id) : Observable<InsertionOrder> {
+	getInsertionOrder(id) : Observable<InsertionOrder> {
 		const uri = this.apiUrl + '/InsertionOrder/load/' + id;
 
 		return this.http.get<InsertionOrder>(uri);

@@ -36,7 +36,7 @@ export class AdSlotService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createAdSlot(slotCode, width, height, floorPrice, InventorySource, Placements, Rates, Format) : Observable<any> {
+	addAdSlot(slotCode, width, height, floorPrice, InventorySource, Placements, Rates, Format) : Observable<any> {
 		const uri = this.apiUrl + '/AdSlot/create';
 		const obj = {
 			      		slotCode: slotCode,
@@ -89,7 +89,7 @@ export class AdSlotService extends HelperBaseService {
 	// AdSlot model
 	// delegates via URI
 	//********************************************************************
-	loadAdSlot(id) : Observable<AdSlot> {
+	getAdSlot(id) : Observable<AdSlot> {
 		const uri = this.apiUrl + '/AdSlot/load/' + id;
 
 		return this.http.get<AdSlot>(uri);

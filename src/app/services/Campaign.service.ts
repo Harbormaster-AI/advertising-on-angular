@@ -40,7 +40,7 @@ export class CampaignService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createCampaign(name, totalBudget, flight, AdAccount, LineItems, Kpis, TrackingPixels, Audiences, Reports, InsertionOrder, Objective, Status) : Observable<any> {
+	addCampaign(name, totalBudget, flight, AdAccount, LineItems, Kpis, TrackingPixels, Audiences, Reports, InsertionOrder, Objective, Status) : Observable<any> {
 		const uri = this.apiUrl + '/Campaign/create';
 		const obj = {
 			      		name: name,
@@ -101,7 +101,7 @@ export class CampaignService extends HelperBaseService {
 	// Campaign model
 	// delegates via URI
 	//********************************************************************
-	loadCampaign(id) : Observable<Campaign> {
+	getCampaign(id) : Observable<Campaign> {
 		const uri = this.apiUrl + '/Campaign/load/' + id;
 
 		return this.http.get<Campaign>(uri);

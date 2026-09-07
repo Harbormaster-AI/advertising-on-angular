@@ -35,7 +35,7 @@ export class CreativeApprovalService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createCreativeApproval(reviewer, reviewedAt, CreativeAsset, Publisher, Status) : Observable<any> {
+	addCreativeApproval(reviewer, reviewedAt, CreativeAsset, Publisher, Status) : Observable<any> {
 		const uri = this.apiUrl + '/CreativeApproval/create';
 		const obj = {
 			      		reviewer: reviewer,
@@ -82,7 +82,7 @@ export class CreativeApprovalService extends HelperBaseService {
 	// CreativeApproval model
 	// delegates via URI
 	//********************************************************************
-	loadCreativeApproval(id) : Observable<CreativeApproval> {
+	getCreativeApproval(id) : Observable<CreativeApproval> {
 		const uri = this.apiUrl + '/CreativeApproval/load/' + id;
 
 		return this.http.get<CreativeApproval>(uri);

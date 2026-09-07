@@ -39,7 +39,7 @@ export class LineItemService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createLineItem(name, bidAmount, dailyBudget, frequencyCap, Campaign, Placements, TargetingProfile, Deal, Creatives, PerformanceMetrics, Status, PricingModel, BidStrategy, Pacing) : Observable<any> {
+	addLineItem(name, bidAmount, dailyBudget, frequencyCap, Campaign, Placements, TargetingProfile, Deal, Creatives, PerformanceMetrics, Status, PricingModel, BidStrategy, Pacing) : Observable<any> {
 		const uri = this.apiUrl + '/LineItem/create';
 		const obj = {
 			      		name: name,
@@ -104,7 +104,7 @@ export class LineItemService extends HelperBaseService {
 	// LineItem model
 	// delegates via URI
 	//********************************************************************
-	loadLineItem(id) : Observable<LineItem> {
+	getLineItem(id) : Observable<LineItem> {
 		const uri = this.apiUrl + '/LineItem/load/' + id;
 
 		return this.http.get<LineItem>(uri);

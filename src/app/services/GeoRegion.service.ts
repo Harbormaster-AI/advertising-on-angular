@@ -33,7 +33,7 @@ export class GeoRegionService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createGeoRegion(code, name, Parent, Children, RegionType) : Observable<any> {
+	addGeoRegion(code, name, Parent, Children, RegionType) : Observable<any> {
 		const uri = this.apiUrl + '/GeoRegion/create';
 		const obj = {
 			      		code: code,
@@ -80,7 +80,7 @@ export class GeoRegionService extends HelperBaseService {
 	// GeoRegion model
 	// delegates via URI
 	//********************************************************************
-	loadGeoRegion(id) : Observable<GeoRegion> {
+	getGeoRegion(id) : Observable<GeoRegion> {
 		const uri = this.apiUrl + '/GeoRegion/load/' + id;
 
 		return this.http.get<GeoRegion>(uri);

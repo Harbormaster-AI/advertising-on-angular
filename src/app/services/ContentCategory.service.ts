@@ -33,7 +33,7 @@ export class ContentCategoryService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createContentCategory(code, name) : Observable<any> {
+	addContentCategory(code, name) : Observable<any> {
 		const uri = this.apiUrl + '/ContentCategory/create';
 		const obj = {
 			      		code: code,
@@ -74,7 +74,7 @@ export class ContentCategoryService extends HelperBaseService {
 	// ContentCategory model
 	// delegates via URI
 	//********************************************************************
-	loadContentCategory(id) : Observable<ContentCategory> {
+	getContentCategory(id) : Observable<ContentCategory> {
 		const uri = this.apiUrl + '/ContentCategory/load/' + id;
 
 		return this.http.get<ContentCategory>(uri);

@@ -38,7 +38,7 @@ export class AdvertiserService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createAdvertiser(name, legalName, industry, website, Agency, AdAccounts, BillingProfiles, Campaigns, TrackingPixels) : Observable<any> {
+	addAdvertiser(name, legalName, industry, website, Agency, AdAccounts, BillingProfiles, Campaigns, TrackingPixels) : Observable<any> {
 		const uri = this.apiUrl + '/Advertiser/create';
 		const obj = {
 			      		name: name,
@@ -93,7 +93,7 @@ export class AdvertiserService extends HelperBaseService {
 	// Advertiser model
 	// delegates via URI
 	//********************************************************************
-	loadAdvertiser(id) : Observable<Advertiser> {
+	getAdvertiser(id) : Observable<Advertiser> {
 		const uri = this.apiUrl + '/Advertiser/load/' + id;
 
 		return this.http.get<Advertiser>(uri);

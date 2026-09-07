@@ -37,7 +37,7 @@ export class CreativeAssetService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createCreativeAsset(name, clickUrl, landingPage, width, height, durationSeconds, Files, Approvals, Variations, LineItems, CreativeType, AdFormat) : Observable<any> {
+	addCreativeAsset(name, clickUrl, landingPage, width, height, durationSeconds, Files, Approvals, Variations, LineItems, CreativeType, AdFormat) : Observable<any> {
 		const uri = this.apiUrl + '/CreativeAsset/create';
 		const obj = {
 			      		name: name,
@@ -98,7 +98,7 @@ export class CreativeAssetService extends HelperBaseService {
 	// CreativeAsset model
 	// delegates via URI
 	//********************************************************************
-	loadCreativeAsset(id) : Observable<CreativeAsset> {
+	getCreativeAsset(id) : Observable<CreativeAsset> {
 		const uri = this.apiUrl + '/CreativeAsset/load/' + id;
 
 		return this.http.get<CreativeAsset>(uri);

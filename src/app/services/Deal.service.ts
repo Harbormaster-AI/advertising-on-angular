@@ -36,7 +36,7 @@ export class DealService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createDeal(floorPrice, Publisher, InventorySources, Placements, DealType) : Observable<any> {
+	addDeal(floorPrice, Publisher, InventorySources, Placements, DealType) : Observable<any> {
 		const uri = this.apiUrl + '/Deal/create';
 		const obj = {
 			      		floorPrice: floorPrice,
@@ -83,7 +83,7 @@ export class DealService extends HelperBaseService {
 	// Deal model
 	// delegates via URI
 	//********************************************************************
-	loadDeal(id) : Observable<Deal> {
+	getDeal(id) : Observable<Deal> {
 		const uri = this.apiUrl + '/Deal/load/' + id;
 
 		return this.http.get<Deal>(uri);

@@ -36,7 +36,7 @@ export class BillingProfileService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createBillingProfile(billingName, taxId, billingAddress, Advertiser, PaymentMethods, AdAccounts, PaymentTerms) : Observable<any> {
+	addBillingProfile(billingName, taxId, billingAddress, Advertiser, PaymentMethods, AdAccounts, PaymentTerms) : Observable<any> {
 		const uri = this.apiUrl + '/BillingProfile/create';
 		const obj = {
 			      		billingName: billingName,
@@ -87,7 +87,7 @@ export class BillingProfileService extends HelperBaseService {
 	// BillingProfile model
 	// delegates via URI
 	//********************************************************************
-	loadBillingProfile(id) : Observable<BillingProfile> {
+	getBillingProfile(id) : Observable<BillingProfile> {
 		const uri = this.apiUrl + '/BillingProfile/load/' + id;
 
 		return this.http.get<BillingProfile>(uri);

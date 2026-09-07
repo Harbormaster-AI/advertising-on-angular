@@ -36,7 +36,7 @@ export class PlacementService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createPlacement(name, flight, goalImpressions, LineItem, AdSlot, Deal) : Observable<any> {
+	addPlacement(name, flight, goalImpressions, LineItem, AdSlot, Deal) : Observable<any> {
 		const uri = this.apiUrl + '/Placement/create';
 		const obj = {
 			      		name: name,
@@ -85,7 +85,7 @@ export class PlacementService extends HelperBaseService {
 	// Placement model
 	// delegates via URI
 	//********************************************************************
-	loadPlacement(id) : Observable<Placement> {
+	getPlacement(id) : Observable<Placement> {
 		const uri = this.apiUrl + '/Placement/load/' + id;
 
 		return this.http.get<Placement>(uri);

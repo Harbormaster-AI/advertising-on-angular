@@ -34,7 +34,7 @@ export class KPIService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createKPI(targetValue, Campaign, MetricType) : Observable<any> {
+	addKPI(targetValue, Campaign, MetricType) : Observable<any> {
 		const uri = this.apiUrl + '/KPI/create';
 		const obj = {
 			      		targetValue: targetValue,
@@ -77,7 +77,7 @@ export class KPIService extends HelperBaseService {
 	// KPI model
 	// delegates via URI
 	//********************************************************************
-	loadKPI(id) : Observable<KPI> {
+	getKPI(id) : Observable<KPI> {
 		const uri = this.apiUrl + '/KPI/load/' + id;
 
 		return this.http.get<KPI>(uri);

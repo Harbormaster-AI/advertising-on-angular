@@ -34,7 +34,7 @@ export class CreativeFileService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createCreativeFile(uri, fileSizeKB, mimeType, checksum, CreativeAsset) : Observable<any> {
+	addCreativeFile(uri, fileSizeKB, mimeType, checksum, CreativeAsset) : Observable<any> {
 		const uri = this.apiUrl + '/CreativeFile/create';
 		const obj = {
 			      		uri: uri,
@@ -81,7 +81,7 @@ export class CreativeFileService extends HelperBaseService {
 	// CreativeFile model
 	// delegates via URI
 	//********************************************************************
-	loadCreativeFile(id) : Observable<CreativeFile> {
+	getCreativeFile(id) : Observable<CreativeFile> {
 		const uri = this.apiUrl + '/CreativeFile/load/' + id;
 
 		return this.http.get<CreativeFile>(uri);

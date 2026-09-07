@@ -35,7 +35,7 @@ export class RateService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createRate(unitPrice, RateCard, AdSlot, AdFormat, PricingModel) : Observable<any> {
+	addRate(unitPrice, RateCard, AdSlot, AdFormat, PricingModel) : Observable<any> {
 		const uri = this.apiUrl + '/Rate/create';
 		const obj = {
 			      		unitPrice: unitPrice,
@@ -82,7 +82,7 @@ export class RateService extends HelperBaseService {
 	// Rate model
 	// delegates via URI
 	//********************************************************************
-	loadRate(id) : Observable<Rate> {
+	getRate(id) : Observable<Rate> {
 		const uri = this.apiUrl + '/Rate/load/' + id;
 
 		return this.http.get<Rate>(uri);

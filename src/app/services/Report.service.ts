@@ -36,7 +36,7 @@ export class ReportService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createReport(reportName, generatedAt, fileUrl, AdAccount, Campaign, LineItem, ReportType) : Observable<any> {
+	addReport(reportName, generatedAt, fileUrl, AdAccount, Campaign, LineItem, ReportType) : Observable<any> {
 		const uri = this.apiUrl + '/Report/create';
 		const obj = {
 			      		reportName: reportName,
@@ -87,7 +87,7 @@ export class ReportService extends HelperBaseService {
 	// Report model
 	// delegates via URI
 	//********************************************************************
-	loadReport(id) : Observable<Report> {
+	getReport(id) : Observable<Report> {
 		const uri = this.apiUrl + '/Report/load/' + id;
 
 		return this.http.get<Report>(uri);

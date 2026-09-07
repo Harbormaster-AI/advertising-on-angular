@@ -35,7 +35,7 @@ export class AudienceSegmentService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createAudienceSegment(name, estimatedReach, description, Provider, Campaigns, ProviderType) : Observable<any> {
+	addAudienceSegment(name, estimatedReach, description, Provider, Campaigns, ProviderType) : Observable<any> {
 		const uri = this.apiUrl + '/AudienceSegment/create';
 		const obj = {
 			      		name: name,
@@ -84,7 +84,7 @@ export class AudienceSegmentService extends HelperBaseService {
 	// AudienceSegment model
 	// delegates via URI
 	//********************************************************************
-	loadAudienceSegment(id) : Observable<AudienceSegment> {
+	getAudienceSegment(id) : Observable<AudienceSegment> {
 		const uri = this.apiUrl + '/AudienceSegment/load/' + id;
 
 		return this.http.get<AudienceSegment>(uri);

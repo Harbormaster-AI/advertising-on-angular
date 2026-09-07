@@ -34,7 +34,7 @@ export class CreativeVariationService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createCreativeVariation(name, language, headline, bodyText, callToAction, CreativeAsset) : Observable<any> {
+	addCreativeVariation(name, language, headline, bodyText, callToAction, CreativeAsset) : Observable<any> {
 		const uri = this.apiUrl + '/CreativeVariation/create';
 		const obj = {
 			      		name: name,
@@ -83,7 +83,7 @@ export class CreativeVariationService extends HelperBaseService {
 	// CreativeVariation model
 	// delegates via URI
 	//********************************************************************
-	loadCreativeVariation(id) : Observable<CreativeVariation> {
+	getCreativeVariation(id) : Observable<CreativeVariation> {
 		const uri = this.apiUrl + '/CreativeVariation/load/' + id;
 
 		return this.http.get<CreativeVariation>(uri);

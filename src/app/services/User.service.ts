@@ -36,7 +36,7 @@ export class UserService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createUser(firstName, lastName, email, Agency, Teams, AdAccounts, Role) : Observable<any> {
+	addUser(firstName, lastName, email, Agency, Teams, AdAccounts, Role) : Observable<any> {
 		const uri = this.apiUrl + '/User/create';
 		const obj = {
 			      		firstName: firstName,
@@ -87,7 +87,7 @@ export class UserService extends HelperBaseService {
 	// User model
 	// delegates via URI
 	//********************************************************************
-	loadUser(id) : Observable<User> {
+	getUser(id) : Observable<User> {
 		const uri = this.apiUrl + '/User/load/' + id;
 
 		return this.http.get<User>(uri);

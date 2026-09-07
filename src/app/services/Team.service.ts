@@ -36,7 +36,7 @@ export class TeamService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createTeam(name, Agency, Users, AdAccounts) : Observable<any> {
+	addTeam(name, Agency, Users, AdAccounts) : Observable<any> {
 		const uri = this.apiUrl + '/Team/create';
 		const obj = {
 			      		name: name,
@@ -81,7 +81,7 @@ export class TeamService extends HelperBaseService {
 	// Team model
 	// delegates via URI
 	//********************************************************************
-	loadTeam(id) : Observable<Team> {
+	getTeam(id) : Observable<Team> {
 		const uri = this.apiUrl + '/Team/load/' + id;
 
 		return this.http.get<Team>(uri);

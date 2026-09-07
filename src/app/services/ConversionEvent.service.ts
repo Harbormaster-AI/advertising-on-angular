@@ -36,7 +36,7 @@ export class ConversionEventService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createConversionEvent(timestamp, value, Campaign, LineItem, TrackingPixel, EventType, AttributionModel) : Observable<any> {
+	addConversionEvent(timestamp, value, Campaign, LineItem, TrackingPixel, EventType, AttributionModel) : Observable<any> {
 		const uri = this.apiUrl + '/ConversionEvent/create';
 		const obj = {
 			      		timestamp: timestamp,
@@ -87,7 +87,7 @@ export class ConversionEventService extends HelperBaseService {
 	// ConversionEvent model
 	// delegates via URI
 	//********************************************************************
-	loadConversionEvent(id) : Observable<ConversionEvent> {
+	getConversionEvent(id) : Observable<ConversionEvent> {
 		const uri = this.apiUrl + '/ConversionEvent/load/' + id;
 
 		return this.http.get<ConversionEvent>(uri);

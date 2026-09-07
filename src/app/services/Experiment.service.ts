@@ -35,7 +35,7 @@ export class ExperimentService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createExperiment(name, hypothesis, startDate, endDate, Campaign, Variants, Status) : Observable<any> {
+	addExperiment(name, hypothesis, startDate, endDate, Campaign, Variants, Status) : Observable<any> {
 		const uri = this.apiUrl + '/Experiment/create';
 		const obj = {
 			      		name: name,
@@ -86,7 +86,7 @@ export class ExperimentService extends HelperBaseService {
 	// Experiment model
 	// delegates via URI
 	//********************************************************************
-	loadExperiment(id) : Observable<Experiment> {
+	getExperiment(id) : Observable<Experiment> {
 		const uri = this.apiUrl + '/Experiment/load/' + id;
 
 		return this.http.get<Experiment>(uri);

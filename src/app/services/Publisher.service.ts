@@ -38,7 +38,7 @@ export class PublisherService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createPublisher(name, website, InventorySources, Deals, CreativeApprovals, InsertionOrders, RateCards, PublisherType) : Observable<any> {
+	addPublisher(name, website, InventorySources, Deals, CreativeApprovals, InsertionOrders, RateCards, PublisherType) : Observable<any> {
 		const uri = this.apiUrl + '/Publisher/create';
 		const obj = {
 			      		name: name,
@@ -91,7 +91,7 @@ export class PublisherService extends HelperBaseService {
 	// Publisher model
 	// delegates via URI
 	//********************************************************************
-	loadPublisher(id) : Observable<Publisher> {
+	getPublisher(id) : Observable<Publisher> {
 		const uri = this.apiUrl + '/Publisher/load/' + id;
 
 		return this.http.get<Publisher>(uri);

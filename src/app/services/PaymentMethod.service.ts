@@ -34,7 +34,7 @@ export class PaymentMethodService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createPaymentMethod(last4, cardholderName, billingAddress, BillingProfile, MethodType) : Observable<any> {
+	addPaymentMethod(last4, cardholderName, billingAddress, BillingProfile, MethodType) : Observable<any> {
 		const uri = this.apiUrl + '/PaymentMethod/create';
 		const obj = {
 			      		last4: last4,
@@ -81,7 +81,7 @@ export class PaymentMethodService extends HelperBaseService {
 	// PaymentMethod model
 	// delegates via URI
 	//********************************************************************
-	loadPaymentMethod(id) : Observable<PaymentMethod> {
+	getPaymentMethod(id) : Observable<PaymentMethod> {
 		const uri = this.apiUrl + '/PaymentMethod/load/' + id;
 
 		return this.http.get<PaymentMethod>(uri);

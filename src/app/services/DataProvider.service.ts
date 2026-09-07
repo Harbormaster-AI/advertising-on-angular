@@ -34,7 +34,7 @@ export class DataProviderService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createDataProvider(name, website, AudienceSegments, ProviderType) : Observable<any> {
+	addDataProvider(name, website, AudienceSegments, ProviderType) : Observable<any> {
 		const uri = this.apiUrl + '/DataProvider/create';
 		const obj = {
 			      		name: name,
@@ -79,7 +79,7 @@ export class DataProviderService extends HelperBaseService {
 	// DataProvider model
 	// delegates via URI
 	//********************************************************************
-	loadDataProvider(id) : Observable<DataProvider> {
+	getDataProvider(id) : Observable<DataProvider> {
 		const uri = this.apiUrl + '/DataProvider/load/' + id;
 
 		return this.http.get<DataProvider>(uri);

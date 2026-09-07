@@ -34,7 +34,7 @@ export class DeviceCriterionService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createDeviceCriterion(TargetingProfile, DeviceType, PlatformType, Operator) : Observable<any> {
+	addDeviceCriterion(TargetingProfile, DeviceType, PlatformType, Operator) : Observable<any> {
 		const uri = this.apiUrl + '/DeviceCriterion/create';
 		const obj = {
 			      		TargetingProfile: TargetingProfile != null && TargetingProfile.length > 0 ? TargetingProfile : null,
@@ -79,7 +79,7 @@ export class DeviceCriterionService extends HelperBaseService {
 	// DeviceCriterion model
 	// delegates via URI
 	//********************************************************************
-	loadDeviceCriterion(id) : Observable<DeviceCriterion> {
+	getDeviceCriterion(id) : Observable<DeviceCriterion> {
 		const uri = this.apiUrl + '/DeviceCriterion/load/' + id;
 
 		return this.http.get<DeviceCriterion>(uri);

@@ -34,7 +34,7 @@ export class DSPService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createDSP(name, website, region, AdAccounts) : Observable<any> {
+	addDSP(name, website, region, AdAccounts) : Observable<any> {
 		const uri = this.apiUrl + '/DSP/create';
 		const obj = {
 			      		name: name,
@@ -79,7 +79,7 @@ export class DSPService extends HelperBaseService {
 	// DSP model
 	// delegates via URI
 	//********************************************************************
-	loadDSP(id) : Observable<DSP> {
+	getDSP(id) : Observable<DSP> {
 		const uri = this.apiUrl + '/DSP/load/' + id;
 
 		return this.http.get<DSP>(uri);

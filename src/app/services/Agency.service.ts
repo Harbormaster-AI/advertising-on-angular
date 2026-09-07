@@ -37,7 +37,7 @@ export class AgencyService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createAgency(name, legalName, headquartersCountry, website, Advertisers, Teams, Users, InsertionOrders) : Observable<any> {
+	addAgency(name, legalName, headquartersCountry, website, Advertisers, Teams, Users, InsertionOrders) : Observable<any> {
 		const uri = this.apiUrl + '/Agency/create';
 		const obj = {
 			      		name: name,
@@ -90,7 +90,7 @@ export class AgencyService extends HelperBaseService {
 	// Agency model
 	// delegates via URI
 	//********************************************************************
-	loadAgency(id) : Observable<Agency> {
+	getAgency(id) : Observable<Agency> {
 		const uri = this.apiUrl + '/Agency/load/' + id;
 
 		return this.http.get<Agency>(uri);

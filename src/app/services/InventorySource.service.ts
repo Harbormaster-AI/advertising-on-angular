@@ -36,7 +36,7 @@ export class InventorySourceService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createInventorySource(name, domain, Publisher, AdSlots, Deals, Channel, PrimaryFormat) : Observable<any> {
+	addInventorySource(name, domain, Publisher, AdSlots, Deals, Channel, PrimaryFormat) : Observable<any> {
 		const uri = this.apiUrl + '/InventorySource/create';
 		const obj = {
 			      		name: name,
@@ -87,7 +87,7 @@ export class InventorySourceService extends HelperBaseService {
 	// InventorySource model
 	// delegates via URI
 	//********************************************************************
-	loadInventorySource(id) : Observable<InventorySource> {
+	getInventorySource(id) : Observable<InventorySource> {
 		const uri = this.apiUrl + '/InventorySource/load/' + id;
 
 		return this.http.get<InventorySource>(uri);

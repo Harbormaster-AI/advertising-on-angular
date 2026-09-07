@@ -34,7 +34,7 @@ export class BrandSafetyPolicyService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createBrandSafetyPolicy(TargetingProfiles, Level, ContentRatingThreshold) : Observable<any> {
+	addBrandSafetyPolicy(TargetingProfiles, Level, ContentRatingThreshold) : Observable<any> {
 		const uri = this.apiUrl + '/BrandSafetyPolicy/create';
 		const obj = {
 			      		TargetingProfiles: TargetingProfiles != null && TargetingProfiles.length > 0 ? TargetingProfiles : null,
@@ -77,7 +77,7 @@ export class BrandSafetyPolicyService extends HelperBaseService {
 	// BrandSafetyPolicy model
 	// delegates via URI
 	//********************************************************************
-	loadBrandSafetyPolicy(id) : Observable<BrandSafetyPolicy> {
+	getBrandSafetyPolicy(id) : Observable<BrandSafetyPolicy> {
 		const uri = this.apiUrl + '/BrandSafetyPolicy/load/' + id;
 
 		return this.http.get<BrandSafetyPolicy>(uri);

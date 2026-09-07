@@ -36,7 +36,7 @@ export class TrackingPixelService extends HelperBaseService {
 	// returns the results untouched as a JSON representation
 	// delegates via URI
 	//********************************************************************
-	createTrackingPixel(name, url, Campaign, Advertiser, ConversionEvents, EventType, PixelType) : Observable<any> {
+	addTrackingPixel(name, url, Campaign, Advertiser, ConversionEvents, EventType, PixelType) : Observable<any> {
 		const uri = this.apiUrl + '/TrackingPixel/create';
 		const obj = {
 			      		name: name,
@@ -87,7 +87,7 @@ export class TrackingPixelService extends HelperBaseService {
 	// TrackingPixel model
 	// delegates via URI
 	//********************************************************************
-	loadTrackingPixel(id) : Observable<TrackingPixel> {
+	getTrackingPixel(id) : Observable<TrackingPixel> {
 		const uri = this.apiUrl + '/TrackingPixel/load/' + id;
 
 		return this.http.get<TrackingPixel>(uri);
