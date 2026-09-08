@@ -8,5 +8,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Welcome to advertising-on-angular';
+  title = 'Welcome to advertisingonangular';
 }

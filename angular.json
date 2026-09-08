@@ -7,7 +7,7 @@
 "newProjectRoot": "projects",
 
 "projects": {
-"advertising-on-angular": {
+"advertisingonangular": {
 "root": "",
 "sourceRoot": "src",
 "projectType": "application",
@@ -24,7 +24,7 @@
 "builder": "@angular/build:application",
 
 "options": {
-"outputPath": "dist/advertising-on-angular",
+"outputPath": "dist/advertisingonangular",
 "index": "src/index.html",
 "browser": "src/main.ts",
 "tsConfig": "src/tsconfig.app.json",
@@ -74,11 +74,11 @@
 
 "configurations": {
 "production": {
-"buildTarget": "advertising-on-angular:build:production"
+"buildTarget": "advertisingonangular:build:production"
 },
 
 "development": {
-"buildTarget": "advertising-on-angular:build:development"
+"buildTarget": "advertisingonangular:build:development"
 }
 },
 
@@ -89,7 +89,7 @@
 "builder": "@angular-devkit/build-angular:extract-i18n",
 
 "options": {
-"buildTarget": "advertising-on-angular:build"
+"buildTarget": "advertisingonangular:build"
 }
 }
 }

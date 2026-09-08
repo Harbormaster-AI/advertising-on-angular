@@ -7,14 +7,14 @@ resource "kubernetes_replication_controller" "app-master" {
         replicas = 1
 
         selector = {
-            app  = "advertising-on-angular"
+            app  = "advertisingonangular"
         }
 
         template {
 
             metadata {
                 labels = {
-                    app  = "bankingbackend"
+                    app  = "advertisingonangular"
                 }
             }
 
@@ -28,7 +28,7 @@ resource "kubernetes_replication_controller" "app-master" {
                     }
 
                     resources {
-                        requests {
+                        requests = {
                             cpu    = "100m"
                             memory = "100Mi"
                         }
@@ -38,14 +38,15 @@ resource "kubernetes_replication_controller" "app-master" {
                     image = "#DockerComposePlatformImage()"
                     name  = "app-container"
 
-                port {
-                    container_port = #DefaultPort()
-                }
+                    port {
+                        container_port = #DefaultPort()
+                    }
 #DockerComposeDBEnvironment()
-                resources {
-                    requests {
-                        cpu    = "100m"
-                        memory = "100Mi"
+                    resources {
+                        requests = {
+                            cpu    = "100m"
+                            memory = "100Mi"
+                        }
                     }
                 }
             }
